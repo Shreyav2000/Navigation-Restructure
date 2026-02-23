@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EVPL Header Prototypes</title>
+  <title>EVPL Header Prototypes (Corrected V1/V2/V3)</title>
 
   <link rel="stylesheet" href="https://use.typekit.net/ivf2pma.css">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -198,6 +198,122 @@
     .fcd .em{font-size:22px;margin-bottom:10px;}
     .fcd h3{font-size:14px;font-weight:700;color:var(--gdk);margin-bottom:3px;}
     .fcd p{font-size:12px;color:var(--g500);}
+
+    /* ===== EVPL APP PROMO (Homepage feature) ===== */
+    .appsec{
+      padding:42px 50px;
+      background:var(--blu);
+      position:relative;
+      overflow:hidden;
+    }
+    .appsec::before{
+      content:'';
+      position:absolute;
+      right:-120px; top:-120px;
+      width:360px; height:360px;
+      border-radius:50%;
+      background:rgba(255,255,255,.10);
+    }
+    .appsec::after{
+      content:'';
+      position:absolute;
+      right:-40px; bottom:-140px;
+      width:320px; height:320px;
+      border-radius:50%;
+      background:rgba(255,255,255,.08);
+    }
+    .appin{
+      max-width:1100px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:28px;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+    .apph{
+      color:#fff;
+      font-size:40px;
+      font-weight:800;
+      line-height:1.1;
+      margin-bottom:10px;
+    }
+    .appp{
+      color:rgba(255,255,255,.85);
+      font-size:16px;
+      line-height:1.6;
+      margin-bottom:18px;
+    }
+    .appnote{
+      margin-top:14px;
+      color:rgba(255,255,255,.85);
+      font-style:italic;
+      font-size:18px;
+    }
+    .appbtns{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .appbtn{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      padding:14px 18px;
+      border-radius:14px;
+      background:rgba(0,0,0,.72);
+      color:#fff;
+      font-weight:800;
+      font-size:16px;
+      border:2px solid rgba(255,255,255,.14);
+      box-shadow:0 10px 30px rgba(0,0,0,.20);
+      transition:.18s ease;
+    }
+    .appbtn:hover{
+      transform:translateY(-1px);
+      background:rgba(0,0,0,.80);
+      border-color:rgba(255,255,255,.22);
+    }
+    .appbtn:active{ transform:translateY(0); }
+    .badge{
+      width:40px;height:40px;
+      border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      flex-shrink:0;
+    }
+    .badge svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+    .appvis{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .appcard{
+      width:min(420px, 100%);
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 18px 50px rgba(0,0,0,.18);
+      backdrop-filter: blur(8px);
+    }
+    .appimg{
+      width:100%;
+      height:auto;
+      border-radius:14px;
+      display:block;
+      background:rgba(0,0,0,.12);
+    }
+    .appimgph{
+      height:220px;border-radius:14px;
+      display:flex;align-items:center;justify-content:center;
+      color:rgba(255,255,255,.8);
+      font-weight:800;letter-spacing:.5px;
+      border:2px dashed rgba(255,255,255,.35);
+    }
 
     /* ===== HEADERS ===== */
     .h1{position:relative;}
@@ -418,6 +534,11 @@
       .ft-form{width:100%;}
       .ft-form input{width:100%;}
       .ft-grid.cols-5,.ft-grid.cols-4,.ft-grid.cols-3{grid-template-columns:1fr 1fr;}
+
+      .appsec{padding:34px 20px;}
+      .appin{grid-template-columns:1fr;gap:18px;}
+      .apph{font-size:32px;}
+      .appnote{font-size:16px;}
     }
     @media(max-width:640px){
       .ft-grid.cols-5,.ft-grid.cols-4,.ft-grid.cols-3{grid-template-columns:1fr;}
@@ -467,10 +588,11 @@
       <button class="tb" onclick="show('v3',this)">V3: Simplified</button>
       <button class="tb" onclick="show('cmp',this)">Compare</button>
     </div>
-    <span class="ht">Three navigation philosophies · Click items for dropdowns</span>
+    <span class="ht">Corrected IA · No duplicated sections inside a prototype header</span>
   </div>
 
   <div class="wrap">
+
     <!-- =========================
          V1 TASK-BASED
     ========================== -->
@@ -480,7 +602,7 @@
           <span class="dtag">V1</span>
           <div>
             <h2>Task-Based — "What do I want to do?"</h2>
-            <p>Dark green utility bar. Collections · Services · Programs &amp; Events · <strong>Initiatives</strong> · Research · Kids &amp; Teens · About</p>
+            <p>Collections · Services · Programs &amp; Events · <strong>Initiatives</strong> · Research · Kids &amp; Teens · About</p>
           </div>
         </div>
       </div>
@@ -518,10 +640,7 @@
                 <div class="ni" onclick="om(this,'d1a')">Collections <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
                 <div class="ni" onclick="om(this,'d1b')">Services <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
                 <div class="ni" onclick="om(this,'d1c')">Programs &amp; Events <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-
-                <!-- ADDED: Initiatives (no duplication elsewhere in V1) -->
                 <div class="ni" onclick="om(this,'d1g')">Initiatives <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-
                 <div class="ni" onclick="om(this,'d1d')">Research <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
                 <div class="ni" onclick="om(this,'d1e')">Kids &amp; Teens <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
                 <div class="ni" onclick="om(this,'d1f')">About <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
@@ -545,15 +664,17 @@
               <div class="sh">Search the EVPL catalog or website</div>
             </div>
 
-            <!-- Collections -->
+            <!-- V1: Collections -->
             <div class="mm" id="d1a">
               <div class="mi">
                 <div class="mc">
                   <h4><span class="dot"></span>Browse</h4>
                   <a href="https://catalog.evpl.org">Explore Our Catalog<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/help">How to Use Our Catalog<span class="ar">→</span></a>
                   <a href="https://catalog.evpl.org/?browseCategory=evans_read">Read<span class="ar">→</span></a>
                   <a href="https://catalog.evpl.org/?browseCategory=evans_watch">Watch<span class="ar">→</span></a>
                   <a href="https://catalog.evpl.org/?browseCategory=evans_listen">Listen<span class="ar">→</span></a>
+                  <a href="/upcoming-releases/">Upcoming Releases<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
                   <h4><span class="dot"></span>Digital</h4>
@@ -561,44 +682,47 @@
                   <a href="https://www.hoopladigital.com/">Hoopla<span class="ar">→</span></a>
                   <a href="https://evpl.kanopy.com/">Kanopy<span class="ar">→</span></a>
                   <a href="https://evansvillevanderburghpublic.comicsplus.app/">Comics Plus<span class="ar">→</span></a>
+                  <a href="https://my.nicheacademy.com/evpl">EVPL Academy<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
                   <h4><span class="dot"></span>Special</h4>
                   <a href="/library-of-things/">Library of Things<span class="ar">→</span></a>
-                  <a href="https://my.nicheacademy.com/evpl">EVPL Academy<span class="ar">→</span></a>
-                  <a href="/initiatives/evpl-extras/">EVPL Extras!<span class="ar">→</span></a>
+                  <a href="/special-collections/">Special Collections<span class="ar">→</span></a>
+                  <a href="https://digital.evpl.org">Digital Archive<span class="ar">→</span></a>
                   <a href="/research-home/" class="cta">All Online Resources →</a>
                 </div>
               </div>
             </div>
 
-            <!-- Services -->
+            <!-- V1: Services -->
             <div class="mm" id="d1b">
               <div class="mi">
                 <div class="mc">
-                  <h4><span class="dot"></span>Popular</h4>
+                  <h4><span class="dot"></span>Getting Started</h4>
                   <a href="/services/library-card/">Library Cards<span class="ar">→</span></a>
+                  <a href="/services/library-card/online-evpl-card-registration/">Online EVPL Card Registration<span class="ar">→</span></a>
+                  <a href="/services/evpl-card-text-notifications/">Card Text Notifications<span class="ar">→</span></a>
+                  <a href="/services/mobile-apps/">Mobile Apps<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Spaces &amp; Appointments</h4>
                   <a href="https://rooms.evpl.org/reserve">Reserve a Room<span class="ar">→</span></a>
-                  <a href="/services/passport-experience/">Passport Services<span class="ar">→</span></a>
-                  <a href="/services/technology-services/print-copy-fax/">Print / Copy / Scan<span class="ar">→</span></a>
-                </div>
-                <div class="mc">
-                  <h4><span class="dot"></span>Create &amp; Learn</h4>
-                  <a href="/services/evpl-maker-studio/">Maker Studio<span class="ar">→</span></a>
-                  <a href="/business-central/">Business Central<span class="ar">→</span></a>
                   <a href="/services/book-a-librarian/">Book-A-Librarian<span class="ar">→</span></a>
+                  <a href="/services/evpl-maker-studio/">Maker Studio<span class="ar">→</span></a>
+                  <a href="/services/evpl-sensory-rooms/">Sensory Rooms<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
-                  <h4><span class="dot"></span>More</h4>
-                  <a href="/services/notary-services/">Notary<span class="ar">→</span></a>
-                  <a href="/services/interlibrary-loan/">Interlibrary Loan<span class="ar">→</span></a>
-                  <a href="/services/evpl-sensory-rooms/">Sensory Rooms<span class="ar">→</span></a>
+                  <h4><span class="dot"></span>Everyday Help</h4>
+                  <a href="/services/passport-experience/">Passport Services<span class="ar">→</span></a>
+                  <a href="/services/notary-services/">Notary Services<span class="ar">→</span></a>
+                  <a href="/services/technology-services/computer-internet-access/">Computers &amp; WiFi<span class="ar">→</span></a>
+                  <a href="/services/technology-services/print-copy-fax/">Print | Copy | Fax | Scan<span class="ar">→</span></a>
                   <a href="/explore/services/" class="cta">All Services →</a>
                 </div>
               </div>
             </div>
 
-            <!-- Programs & Events -->
+            <!-- V1: Programs & Events -->
             <div class="mm" id="d1c">
               <div class="mi">
                 <div class="mc">
@@ -606,12 +730,13 @@
                   <a href="https://events.evpl.org/events?v=grid&a=Children%20(0-11)">Children (0–11)<span class="ar">→</span></a>
                   <a href="https://events.evpl.org/events?v=grid&a=Young%20Adults%20(12-18)">Young Adults (12–18)<span class="ar">→</span></a>
                   <a href="https://events.evpl.org/events?v=grid&a=Adults%20(18%2B)">Adults (18+)<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events">All Events<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
                   <h4><span class="dot"></span>Featured</h4>
-                  <a href="/initiatives/annual-reading-program-2026/">Spark a Love of Reading<span class="ar">→</span></a>
-                  <a href="/initiatives/speak-2026/">SPEAK 2026<span class="ar">→</span></a>
                   <a href="https://libraryc.org/evpl">Virtual Author Talks<span class="ar">→</span></a>
+                  <a href="/programs/digital-programs/">Digital Programs<span class="ar">→</span></a>
+                  <a href="/programs/at-home/">At Home Activities<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
                   <h4>&nbsp;</h4>
@@ -620,36 +745,46 @@
               </div>
             </div>
 
-            <!-- ADDED: Initiatives (Featured + Explore + Blog/News) -->
+            <!-- V1: Initiatives -->
             <div class="mm" id="d1g">
               <div class="mi">
                 <div class="mc">
-                  <h4><span class="dot"></span>Featured Initiatives</h4>
-                  <a href="/initiatives/annual-reading-program-2026/">Annual Reading Program 2026<span class="ar">→</span></a>
+                  <h4><span class="dot"></span>Initiatives</h4>
+                  <a href="/initiatives/">All Initiatives<span class="ar">→</span></a>
                   <a href="/initiatives/speak-2026/">SPEAK 2026<span class="ar">→</span></a>
+                  <a href="/initiatives/spark-a-love-of-reading/">Spark a Love of Reading<span class="ar">→</span></a>
                   <a href="/initiatives/evpl-extras/">EVPL Extras!<span class="ar">→</span></a>
+                  <a href="/initiatives/seasons-of-sharing/">Seasons of Sharing<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
-                  <h4><span class="dot"></span>Explore</h4>
-                  <a href="/initiatives/">All Initiatives<span class="ar">→</span></a>
+                  <h4><span class="dot"></span>Blog &amp; News</h4>
                   <a href="/discover/evpl-news/">EVPL News<span class="ar">→</span></a>
                   <a href="/discover/inspiration/">EVPL’s Blog<span class="ar">→</span></a>
+                  <a href="/initiatives/2024-annual-report/">Annual Report<span class="ar">→</span></a>
+                  <a href="/connect/about/strategic-plan/">Strategic Plan<span class="ar">→</span></a>
+                  <a href="/connect/about/master-facilities-plan/">Master Facilities Plan<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
-                  <h4>&nbsp;</h4>
+                  <h4><span class="dot"></span>Project Updates</h4>
+                  <a href="/project-updates/">All Project Updates<span class="ar">→</span></a>
+                  <a href="/project-updates/central-renovations/">Central Renovations<span class="ar">→</span></a>
+                  <a href="/project-updates/oaklyn-renovations/">Oaklyn Renovations<span class="ar">→</span></a>
+                  <a href="/project-updates/north-park-renovation/">North Park Renovation<span class="ar">→</span></a>
+                  <a href="/project-updates/red-bank-renovations/">Red Bank Renovations<span class="ar">→</span></a>
                   <a href="/initiatives/" class="cta">Browse Initiatives →</a>
                 </div>
               </div>
             </div>
 
-            <!-- Research -->
+            <!-- V1: Research -->
             <div class="mm" id="d1d">
               <div class="mi">
                 <div class="mc">
-                  <h4><span class="dot"></span>Online</h4>
+                  <h4><span class="dot"></span>Online Learning</h4>
                   <a href="/research-home/">Online Learning &amp; Research<span class="ar">→</span></a>
-                  <a href="/explore/research/">All Databases A–Z<span class="ar">→</span></a>
-                  <a href="/research-homework-help-test-prep/">Homework Help<span class="ar">→</span></a>
+                  <a href="/explore/research/">Databases A–Z<span class="ar">→</span></a>
+                  <a href="/research-homework-help-test-prep/">Homework Help &amp; Test Prep<span class="ar">→</span></a>
+                  <a href="/community-resources/">Community Resources<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
                   <h4><span class="dot"></span>Local History</h4>
@@ -660,49 +795,55 @@
                 <div class="mc">
                   <h4><span class="dot"></span>Get Help</h4>
                   <a href="/services/book-a-librarian/">Book-A-Librarian<span class="ar">→</span></a>
-                  <a href="/community-resources/">Community Resources<span class="ar">→</span></a>
+                  <a href="/services/technology-help/">Technology Help<span class="ar">→</span></a>
+                  <a href="/services/interlibrary-loan/">Interlibrary Loan<span class="ar">→</span></a>
                 </div>
               </div>
             </div>
 
-            <!-- Kids & Teens -->
+            <!-- V1: Kids & Teens -->
             <div class="mm" id="d1e">
               <div class="mi">
                 <div class="mc">
                   <h4><span class="dot"></span>Kids</h4>
                   <a href="https://events.evpl.org/events?term=storytime&r=days&n=365">Storytime Programs<span class="ar">→</span></a>
-                  <a href="/initiatives/1ooo-books-before-kindergarten/">1000 Books Before K<span class="ar">→</span></a>
+                  <a href="/initiatives/1ooo-books-before-kindergarten/">1000 Books Before Kindergarten<span class="ar">→</span></a>
+                  <a href="/initiatives/3oo-books-by-3rd-grade/">300 Books by 3rd Grade<span class="ar">→</span></a>
                   <a href="/school-readiness/">School Readiness<span class="ar">→</span></a>
-                  <a href="https://events.evpl.org/events?term=science&r=months&n=12">STEAM Programs<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
                   <h4><span class="dot"></span>Teens</h4>
                   <a href="/initiatives/teens-evpl/">Teens @ EVPL<span class="ar">→</span></a>
-                  <a href="/research-homework-help-test-prep/">Homework Help<span class="ar">→</span></a>
                   <a href="/students-evpl-2/">Students @ EVPL<span class="ar">→</span></a>
+                  <a href="/research-homework-help-test-prep/">Homework Help<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events?v=grid&a=Young%20Adults%20(12-18)">Teen Events<span class="ar">→</span></a>
                 </div>
               </div>
             </div>
 
-            <!-- About (kept clean: no initiatives/blog duplication here) -->
+            <!-- V1: About -->
             <div class="mm" id="d1f">
               <div class="mi">
                 <div class="mc">
-                  <h4><span class="dot"></span>Our Library</h4>
+                  <h4><span class="dot"></span>Who We Are</h4>
                   <a href="/connect/leadership/?branch=all&department=leadership-team">Leadership<span class="ar">→</span></a>
                   <a href="/connect/board/">Board of Trustees<span class="ar">→</span></a>
                   <a href="/connect/foundation/">EVPL Foundation<span class="ar">→</span></a>
-                  <a href="/connect/about/careers/">Careers<span class="ar">→</span></a>
+                  <a href="/connect/about/careers/">Careers / Join Our Team<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
-                  <h4><span class="dot"></span>Policies</h4>
+                  <h4><span class="dot"></span>Governance</h4>
+                  <a href="/governance/">Governance<span class="ar">→</span></a>
                   <a href="/library-policies-and-procedures/">Library Policies<span class="ar">→</span></a>
-                  <a href="/ada-disclaimer/">Accessibility<span class="ar">→</span></a>
+                  <a href="/public-hearing-budget-notice/">Public Hearing – Budget Notice<span class="ar">→</span></a>
+                  <a href="/public-hearing-notices/">Public Hearing Notices<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
                   <h4><span class="dot"></span>Connect</h4>
                   <a href="/connect/contact-us/">Contact Us<span class="ar">→</span></a>
                   <a href="/do-business-with-evpl/">Do Business with EVPL<span class="ar">→</span></a>
+                  <a href="/outreach/">Outreach<span class="ar">→</span></a>
+                  <a href="/ada-disclaimer/">Accessibility<span class="ar">→</span></a>
                 </div>
               </div>
             </div>
@@ -717,24 +858,63 @@
           </div>
 
           <div class="fcr">
-            <div class="fcd">
-              <div class="em">📚</div>
-              <h3>Browse Collections</h3>
-              <p>Books, eBooks, audiobooks &amp; more.</p>
-            </div>
-            <div class="fcd">
-              <div class="em">📅</div>
-              <h3>Upcoming Events</h3>
-              <p>Storytimes, workshops &amp; clubs.</p>
-            </div>
-            <div class="fcd">
-              <div class="em">🔧</div>
-              <h3>Maker Studio</h3>
-              <p>3D printers, laser cutters &amp; more.</p>
-            </div>
+            <div class="fcd"><div class="em">📚</div><h3>Browse Collections</h3><p>Books, eBooks, audiobooks &amp; more.</p></div>
+            <div class="fcd"><div class="em">📅</div><h3>Upcoming Events</h3><p>Storytimes, workshops &amp; clubs.</p></div>
+            <div class="fcd"><div class="em">🔧</div><h3>Maker Studio</h3><p>3D printers, laser cutters &amp; more.</p></div>
           </div>
 
-          <!-- V1 FOOTER VARIATION -->
+          <!-- EVPL APP PROMO (Homepage feature) -->
+          <section class="appsec" aria-label="Get the EVPL App">
+            <div class="appin">
+              <div>
+                <h2 class="apph">Get the EVPL App</h2>
+                <p class="appp">
+                  Download the EVPL mobile app to help you make the most of YOUR library!
+                  Search the catalog, manage your account, place holds, and more — all from your phone.
+                </p>
+
+                <div class="appbtns">
+                  <!-- TODO: Replace href with the real EVPL App Store link -->
+                  <a class="appbtn" href="https://apps.apple.com/" target="_blank" rel="noopener">
+                    <span class="badge" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M9 19h10"/>
+                        <path d="M5 19h1"/>
+                        <path d="M12 5l-5 9"/>
+                        <path d="M12 5l5 9"/>
+                      </svg>
+                    </span>
+                    Get it on the App Store
+                  </a>
+
+                  <!-- TODO: Replace href with the real EVPL Google Play link -->
+                  <a class="appbtn" href="https://play.google.com/store" target="_blank" rel="noopener">
+                    <span class="badge" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M8 6l12 6-12 6z"/>
+                        <path d="M8 6l7 6-7 6z"/>
+                      </svg>
+                    </span>
+                    Get it on Google Play
+                  </a>
+                </div>
+
+                <div class="appnote">Look for the EVPL app icon in your app store!</div>
+              </div>
+
+              <div class="appvis">
+                <div class="appcard">
+                  <!-- TODO: Replace with your hosted banner image URL -->
+                  <div class="appimgph">APP PROMO IMAGE</div>
+                  <!-- Example:
+                  <img class="appimg" src="https://www.evpl.org/wp-content/uploads/....png" alt="EVPL App download promo">
+                  -->
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- V1 FOOTER (task-based structure) -->
           <footer class="ft ftv1">
             <div class="ft-top">
               <div>
@@ -766,49 +946,49 @@
               </div>
 
               <div class="ft-col">
-                <h4>Initiatives</h4>
-                <a href="/initiatives/">All Initiatives</a>
-                <a href="/initiatives/annual-reading-program-2026/">Annual Reading Program</a>
-                <a href="/initiatives/speak-2026/">SPEAK 2026</a>
-                <a href="/initiatives/evpl-extras/">EVPL Extras!</a>
-              </div>
-
-              <div class="ft-col">
-                <h4>News &amp; Blog</h4>
-                <a href="/discover/evpl-news/">EVPL News</a>
-                <a href="/discover/inspiration/">EVPL’s Blog</a>
-                <a href="/initiatives/2024-annual-report/">Annual Report</a>
-                <a href="/connect/about/strategic-plan/">Strategic Plan</a>
-              </div>
-
-              <div class="ft-col">
-                <h4>Services</h4>
+                <h4>Get Started</h4>
                 <a href="/services/library-card/">Get a Library Card</a>
-                <a href="https://rooms.evpl.org/reserve">Reserve a Room</a>
-                <a href="/services/passport-experience/">Passport Services</a>
-                <a href="/services/book-a-librarian/">Book-A-Librarian</a>
+                <a href="/services/library-card/online-evpl-card-registration/">Online Registration</a>
+                <a href="/services/mobile-apps/">Mobile Apps</a>
+                <a href="https://catalog.evpl.org/MyAccount/Home">My Account</a>
               </div>
 
               <div class="ft-col">
-                <h4>Collections</h4>
+                <h4>Borrow</h4>
                 <a href="https://catalog.evpl.org">Catalog</a>
                 <a href="https://libbyapp.com/library/evpl">Libby</a>
-                <a href="https://evpl.kanopy.com/">Kanopy</a>
+                <a href="https://www.hoopladigital.com/">Hoopla</a>
                 <a href="/library-of-things/">Library of Things</a>
+              </div>
+
+              <div class="ft-col">
+                <h4>Attend</h4>
+                <a href="https://events.evpl.org/events">Events Calendar</a>
+                <a href="https://rooms.evpl.org/reserve">Reserve a Room</a>
+                <a href="/services/evpl-maker-studio/">Maker Studio</a>
+                <a href="https://libraryc.org/evpl">Virtual Author Talks</a>
+              </div>
+
+              <div class="ft-col">
+                <h4>Help &amp; About</h4>
+                <a href="/services/book-a-librarian/">Book-A-Librarian</a>
+                <a href="/connect/contact-us/">Contact Us</a>
+                <a href="/library-policies-and-procedures/">Library Policies</a>
+                <a href="/connect/about/careers/">Careers</a>
               </div>
             </div>
 
             <div class="ft-bot">
               <span class="copy">© 2026 Evansville Vanderburgh Public Library</span>
               <nav>
-                <a href="/connect/contact-us/">Contact Us</a>
-                <a href="/library-policies-and-procedures/">Library Policies</a>
-                <a href="/terms-and-conditions/">Terms</a>
-                <a href="/connect/about/careers/">Careers</a>
+                <a href="/connect/locations/">Hours &amp; Locations</a>
                 <a href="/ada-disclaimer/">Accessibility</a>
+                <a href="/terms-and-conditions/">Terms</a>
+                <a href="/connect/foundation/">Donate</a>
               </nav>
             </div>
           </footer>
+
         </div>
       </div>
     </div>
@@ -822,7 +1002,7 @@
           <span class="dtag">V2</span>
           <div>
             <h2>Audience-Based + “What’s Happening”</h2>
-            <p><strong>“What’s Happening”</strong> gives initiatives + blog/news a first-class seat. Browse &amp; Borrow · Services &amp; Spaces · What’s Happening · Kids · Teens · Support EVPL</p>
+            <p>Browse &amp; Borrow · Services &amp; Spaces · <strong>What’s Happening</strong> · Kids · Teens · Support EVPL</p>
           </div>
         </div>
       </div>
@@ -863,10 +1043,7 @@
               <nav class="h2n">
                 <div class="ni" onclick="om(this,'d2a')">Browse &amp; Borrow <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
                 <div class="ni" onclick="om(this,'d2b')">Services &amp; Spaces <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-
-                <!-- What’s Happening contains initiatives + blog/news (NOT duplicated elsewhere in V2 header) -->
                 <div class="ni" onclick="om(this,'d2c')">What’s Happening <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-
                 <div class="ni" onclick="om(this,'d2d')">Kids <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
                 <div class="ni" onclick="om(this,'d2e')">Teens <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
                 <div class="ni" onclick="om(this,'d2f')">Support EVPL <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
@@ -890,11 +1067,13 @@
               <div class="sh">Search the EVPL catalog or website</div>
             </div>
 
+            <!-- V2: Browse & Borrow -->
             <div class="mm" id="d2a">
               <div class="mi">
                 <div class="mc">
                   <h4><span class="dot"></span>Catalog</h4>
                   <a href="https://catalog.evpl.org">Explore Our Catalog<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/help">How to Use Our Catalog<span class="ar">→</span></a>
                   <a href="https://catalog.evpl.org/?browseCategory=evans_read">Books<span class="ar">→</span></a>
                   <a href="https://catalog.evpl.org/?browseCategory=evans_watch">Movies &amp; TV<span class="ar">→</span></a>
                   <a href="https://catalog.evpl.org/?browseCategory=evans_listen">Music &amp; Audio<span class="ar">→</span></a>
@@ -904,20 +1083,24 @@
                   <a href="https://libbyapp.com/library/evpl">Libby<span class="ar">→</span></a>
                   <a href="https://www.hoopladigital.com/">Hoopla<span class="ar">→</span></a>
                   <a href="https://evpl.kanopy.com/">Kanopy<span class="ar">→</span></a>
+                  <a href="https://evansvillevanderburghpublic.comicsplus.app/">Comics Plus<span class="ar">→</span></a>
+                  <a href="https://my.nicheacademy.com/evpl">EVPL Academy<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
                   <h4><span class="dot"></span>Discover</h4>
                   <a href="/library-of-things/">Library of Things<span class="ar">→</span></a>
-                  <a href="/initiatives/evpl-extras/">EVPL Extras!<span class="ar">→</span></a>
                   <a href="/upcoming-releases/">Upcoming Releases<span class="ar">→</span></a>
+                  <a href="/special-collections/">Special Collections<span class="ar">→</span></a>
+                  <a href="/research-home/" class="cta">All Online Resources →</a>
                 </div>
               </div>
             </div>
 
+            <!-- V2: Services & Spaces -->
             <div class="mm" id="d2b">
               <div class="mi">
                 <div class="mc">
-                  <h4><span class="dot"></span>Services</h4>
+                  <h4><span class="dot"></span>Popular Services</h4>
                   <a href="/services/library-card/">Library Cards<span class="ar">→</span></a>
                   <a href="/services/passport-experience/">Passport Services<span class="ar">→</span></a>
                   <a href="/services/notary-services/">Notary<span class="ar">→</span></a>
@@ -933,36 +1116,42 @@
                 <div class="mc">
                   <h4><span class="dot"></span>Help</h4>
                   <a href="/services/book-a-librarian/">Book-A-Librarian<span class="ar">→</span></a>
+                  <a href="/services/technology-help/">Technology Help<span class="ar">→</span></a>
                   <a href="/community-resources/">Community Resources<span class="ar">→</span></a>
                   <a href="/explore/services/" class="cta">All Services →</a>
                 </div>
               </div>
             </div>
 
-            <!-- What’s Happening (initiatives + blog/news) -->
+            <!-- V2: What’s Happening -->
             <div class="mm" id="d2c">
               <div class="mi">
                 <div class="mc">
                   <h4><span class="dot"></span>Initiatives</h4>
-                  <a href="/initiatives/annual-reading-program-2026/">Spark a Love of Reading 2026<span class="ar">→</span></a>
-                  <a href="/initiatives/speak-2026/">SPEAK 2026<span class="ar">→</span></a>
                   <a href="/initiatives/">All Initiatives<span class="ar">→</span></a>
+                  <a href="/initiatives/speak-2026/">SPEAK 2026<span class="ar">→</span></a>
+                  <a href="/initiatives/spark-a-love-of-reading/">Spark a Love of Reading<span class="ar">→</span></a>
+                  <a href="/initiatives/evpl-extras/">EVPL Extras!<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
                   <h4><span class="dot"></span>Blog &amp; News</h4>
                   <a href="/discover/inspiration/">EVPL’s Blog<span class="ar">→</span></a>
                   <a href="/discover/evpl-news/">EVPL News<span class="ar">→</span></a>
                   <a href="/initiatives/2024-annual-report/">Annual Report<span class="ar">→</span></a>
+                  <a href="/connect/about/strategic-plan/">Strategic Plan<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
-                  <h4><span class="dot"></span>Events</h4>
-                  <a href="https://events.evpl.org/events">Events Calendar<span class="ar">→</span></a>
-                  <a href="https://libraryc.org/evpl">Virtual Author Talks<span class="ar">→</span></a>
-                  <a href="https://events.evpl.org/events" class="cta">Full Calendar →</a>
+                  <h4><span class="dot"></span>Project Updates</h4>
+                  <a href="/project-updates/">All Project Updates<span class="ar">→</span></a>
+                  <a href="/project-updates/central-renovations/">Central Renovations<span class="ar">→</span></a>
+                  <a href="/project-updates/oaklyn-renovations/">Oaklyn Renovations<span class="ar">→</span></a>
+                  <a href="/project-updates/red-bank-renovations/">Red Bank Renovations<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events" class="cta">Events Calendar →</a>
                 </div>
               </div>
             </div>
 
+            <!-- V2: Kids -->
             <div class="mm" id="d2d">
               <div class="mi">
                 <div class="mc">
@@ -977,58 +1166,118 @@
                   <a href="/initiatives/3oo-books-by-3rd-grade/">300 Books by 3rd Grade<span class="ar">→</span></a>
                   <a href="/school-readiness/">School Readiness<span class="ar">→</span></a>
                 </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Resources</h4>
+                  <a href="/students-evpl-2/">Students @ EVPL<span class="ar">→</span></a>
+                  <a href="/research-homework-help-test-prep/">Homework Help<span class="ar">→</span></a>
+                </div>
               </div>
             </div>
 
+            <!-- V2: Teens -->
             <div class="mm" id="d2e">
               <div class="mi">
                 <div class="mc">
                   <h4><span class="dot"></span>For Teens</h4>
                   <a href="/initiatives/teens-evpl/">Teens @ EVPL<span class="ar">→</span></a>
-                  <a href="/research-homework-help-test-prep/">Homework Help<span class="ar">→</span></a>
                   <a href="/students-evpl-2/">Students @ EVPL<span class="ar">→</span></a>
+                  <a href="/research-homework-help-test-prep/">Homework Help<span class="ar">→</span></a>
                   <a href="https://events.evpl.org/events?v=grid&a=Young%20Adults%20(12-18)">Teen Events<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Get Involved</h4>
+                  <a href="/volunteer/">Volunteer<span class="ar">→</span></a>
+                  <a href="/outreach/">Outreach<span class="ar">→</span></a>
                 </div>
               </div>
             </div>
 
+            <!-- V2: Support EVPL -->
             <div class="mm" id="d2f">
               <div class="mi">
                 <div class="mc">
                   <h4><span class="dot"></span>Give</h4>
                   <a href="/connect/foundation/">EVPL Foundation<span class="ar">→</span></a>
                   <a href="/connect/foundation/" class="cta">Donate Now →</a>
+                  <a href="/do-business-with-evpl/">Do Business with EVPL<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
-                  <h4><span class="dot"></span>About</h4>
+                  <h4><span class="dot"></span>About &amp; Policies</h4>
                   <a href="/connect/leadership/?branch=all&department=leadership-team">Leadership<span class="ar">→</span></a>
+                  <a href="/connect/board/">Board of Trustees<span class="ar">→</span></a>
+                  <a href="/library-policies-and-procedures/">Library Policies<span class="ar">→</span></a>
                   <a href="/connect/about/careers/">Careers<span class="ar">→</span></a>
-                  <a href="/connect/contact-us/">Contact Us<span class="ar">→</span></a>
                 </div>
               </div>
             </div>
+
           </header>
 
           <div class="fh">
             <div class="fhc">
-              <h1>Spark a Love of Reading</h1>
-              <p>Join our 2026 reading program at any of our 8 locations.</p>
-              <button class="fhb">Get Started →</button>
+              <h1>What’s Happening at EVPL</h1>
+              <p>Initiatives, events, and updates — all in one place.</p>
+              <button class="fhb">Browse Updates →</button>
             </div>
           </div>
 
           <div class="fcr">
-            <div class="fcd"><div class="em">📚</div><h3>Browse Collections</h3><p>Books, eBooks, audiobooks &amp; more.</p></div>
-            <div class="fcd"><div class="em">📅</div><h3>Upcoming Events</h3><p>Storytimes, workshops &amp; clubs.</p></div>
-            <div class="fcd"><div class="em">🔧</div><h3>Maker Studio</h3><p>3D printers, laser cutters &amp; more.</p></div>
+            <div class="fcd"><div class="em">👨‍👩‍👧‍👦</div><h3>Kids</h3><p>Storytimes, early learning, and school support.</p></div>
+            <div class="fcd"><div class="em">🧑‍🎓</div><h3>Teens</h3><p>Events, homework help, and student resources.</p></div>
+            <div class="fcd"><div class="em">🔧</div><h3>Maker Studio</h3><p>Create, learn, and build with EVPL.</p></div>
           </div>
 
-          <!-- V2 FOOTER VARIATION -->
+          <!-- EVPL APP PROMO (Homepage feature) -->
+          <section class="appsec" aria-label="Get the EVPL App">
+            <div class="appin">
+              <div>
+                <h2 class="apph">Get the EVPL App</h2>
+                <p class="appp">
+                  Download the EVPL mobile app to help you make the most of YOUR library!
+                  Search the catalog, manage your account, place holds, and more — all from your phone.
+                </p>
+
+                <div class="appbtns">
+                  <a class="appbtn" href="https://apps.apple.com/" target="_blank" rel="noopener">
+                    <span class="badge" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M9 19h10"/>
+                        <path d="M5 19h1"/>
+                        <path d="M12 5l-5 9"/>
+                        <path d="M12 5l5 9"/>
+                      </svg>
+                    </span>
+                    Get it on the App Store
+                  </a>
+
+                  <a class="appbtn" href="https://play.google.com/store" target="_blank" rel="noopener">
+                    <span class="badge" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M8 6l12 6-12 6z"/>
+                        <path d="M8 6l7 6-7 6z"/>
+                      </svg>
+                    </span>
+                    Get it on Google Play
+                  </a>
+                </div>
+
+                <div class="appnote">Look for the EVPL app icon in your app store!</div>
+              </div>
+
+              <div class="appvis">
+                <div class="appcard">
+                  <div class="appimgph">APP PROMO IMAGE</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- V2 FOOTER (audience-based structure) -->
           <footer class="ft ftv2">
             <div class="ft-top">
               <div>
                 <h3>Get EVPL updates</h3>
-                <p>New initiatives, blog posts, and events — straight to your inbox.</p>
+                <p>News, blog posts, initiatives, and events — straight to your inbox.</p>
               </div>
               <div class="ft-form">
                 <input type="email" placeholder="Email address">
@@ -1055,40 +1304,41 @@
               </div>
 
               <div class="ft-col">
-                <h4>What’s Happening</h4>
-                <a href="/initiatives/">Initiatives</a>
-                <a href="/discover/inspiration/">EVPL’s Blog</a>
-                <a href="/discover/evpl-news/">EVPL News</a>
-                <a href="https://events.evpl.org/events">Events Calendar</a>
+                <h4>Kids</h4>
+                <a href="https://events.evpl.org/events?v=grid&a=Children%20(0-11)">Kids Events</a>
+                <a href="https://events.evpl.org/events?term=storytime&r=days&n=365">Storytimes</a>
+                <a href="/initiatives/1ooo-books-before-kindergarten/">1000 Books Before K</a>
+                <a href="/school-readiness/">School Readiness</a>
               </div>
 
               <div class="ft-col">
-                <h4>Popular</h4>
-                <a href="/services/library-card/">Get a Library Card</a>
-                <a href="https://rooms.evpl.org/reserve">Reserve a Room</a>
+                <h4>Teens</h4>
+                <a href="https://events.evpl.org/events?v=grid&a=Young%20Adults%20(12-18)">Teen Events</a>
+                <a href="/students-evpl-2/">Students @ EVPL</a>
+                <a href="/research-homework-help-test-prep/">Homework Help</a>
+                <a href="/initiatives/teens-evpl/">Teens @ EVPL</a>
+              </div>
+
+              <div class="ft-col">
+                <h4>Adults &amp; Community</h4>
                 <a href="/services/evpl-maker-studio/">Maker Studio</a>
-                <a href="/library-of-things/">Library of Things</a>
-              </div>
-
-              <div class="ft-col">
-                <h4>Help</h4>
-                <a href="/services/book-a-librarian/">Book-A-Librarian</a>
                 <a href="/community-resources/">Community Resources</a>
-                <a href="/connect/locations/">Hours &amp; Locations</a>
-                <a href="/connect/contact-us/">Contact Us</a>
+                <a href="/services/book-a-librarian/">Book-A-Librarian</a>
+                <a href="/connect/foundation/">Support / Donate</a>
               </div>
             </div>
 
             <div class="ft-bot">
               <span class="copy">© 2026 Evansville Vanderburgh Public Library</span>
               <nav>
+                <a href="/connect/locations/">Hours &amp; Locations</a>
+                <a href="/connect/contact-us/">Contact</a>
                 <a href="/library-policies-and-procedures/">Policies</a>
-                <a href="/terms-and-conditions/">Terms</a>
-                <a href="/connect/about/careers/">Careers</a>
                 <a href="/ada-disclaimer/">Accessibility</a>
               </nav>
             </div>
           </footer>
+
         </div>
       </div>
     </div>
@@ -1102,7 +1352,7 @@
           <span class="dtag">V3</span>
           <div>
             <h2>Simplified — 5 Items + “What’s New”</h2>
-            <p><strong>“What’s New”</strong> contains initiatives + blog/news (no duplication across other V3 labels). Books &amp; Media · Services &amp; Spaces · Events · What’s New · About</p>
+            <p>Books &amp; Media · Services &amp; Spaces · Events · <strong>What’s New</strong> · About</p>
           </div>
         </div>
       </div>
@@ -1154,14 +1404,15 @@
               <div class="ni" onclick="om(this,'d3e')">About <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
             </nav>
 
+            <!-- V3: Books & Media -->
             <div class="mm" id="d3a">
               <div class="mi">
                 <div class="mc">
-                  <h4><span class="dot"></span>Physical</h4>
+                  <h4><span class="dot"></span>Browse</h4>
                   <a href="https://catalog.evpl.org">Explore Our Catalog<span class="ar">→</span></a>
                   <a href="https://catalog.evpl.org/?browseCategory=evans_read">Books<span class="ar">→</span></a>
                   <a href="https://catalog.evpl.org/?browseCategory=evans_watch">Movies &amp; TV<span class="ar">→</span></a>
-                  <a href="/library-of-things/">Library of Things<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/?browseCategory=evans_listen">Music &amp; Audio<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
                   <h4><span class="dot"></span>Digital</h4>
@@ -1172,13 +1423,14 @@
                 </div>
                 <div class="mc">
                   <h4><span class="dot"></span>More</h4>
-                  <a href="/initiatives/evpl-extras/">EVPL Extras!<span class="ar">→</span></a>
+                  <a href="/library-of-things/">Library of Things<span class="ar">→</span></a>
                   <a href="/upcoming-releases/">Upcoming Releases<span class="ar">→</span></a>
-                  <a href="/research-home/" class="cta">All Online Resources →</a>
+                  <a href="https://my.nicheacademy.com/evpl">EVPL Academy<span class="ar">→</span></a>
                 </div>
               </div>
             </div>
 
+            <!-- V3: Services & Spaces -->
             <div class="mm" id="d3b">
               <div class="mi">
                 <div class="mc">
@@ -1196,14 +1448,16 @@
                   <a href="/services/technology-services/computer-internet-access/">Computers &amp; WiFi<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
-                  <h4><span class="dot"></span>Help</h4>
+                  <h4><span class="dot"></span>Help &amp; Learning</h4>
                   <a href="/services/book-a-librarian/">Book-A-Librarian<span class="ar">→</span></a>
-                  <a href="/services/evpl-to-go/">EVPL To Go<span class="ar">→</span></a>
-                  <a href="/explore/services/" class="cta">All Services →</a>
+                  <a href="/research-home/">Online Learning &amp; Research<span class="ar">→</span></a>
+                  <a href="/explore/research/">Databases A–Z<span class="ar">→</span></a>
+                  <a href="/community-resources/">Community Resources<span class="ar">→</span></a>
                 </div>
               </div>
             </div>
 
+            <!-- V3: Events -->
             <div class="mm" id="d3c">
               <div class="mi">
                 <div class="mc">
@@ -1214,9 +1468,8 @@
                 </div>
                 <div class="mc">
                   <h4><span class="dot"></span>Featured</h4>
-                  <a href="/initiatives/annual-reading-program-2026/">Spark a Love of Reading<span class="ar">→</span></a>
-                  <a href="/initiatives/speak-2026/">SPEAK 2026<span class="ar">→</span></a>
                   <a href="https://libraryc.org/evpl">Virtual Author Talks<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events">All Events<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
                   <h4>&nbsp;</h4>
@@ -1225,14 +1478,14 @@
               </div>
             </div>
 
-            <!-- What’s New holds initiatives + blog/news -->
+            <!-- V3: What’s New -->
             <div class="mm" id="d3d">
               <div class="mi">
                 <div class="mc">
                   <h4><span class="dot"></span>Initiatives</h4>
                   <a href="/initiatives/">All Initiatives<span class="ar">→</span></a>
-                  <a href="/initiatives/annual-reading-program-2026/">Annual Reading Program 2026<span class="ar">→</span></a>
                   <a href="/initiatives/speak-2026/">SPEAK 2026<span class="ar">→</span></a>
+                  <a href="/initiatives/spark-a-love-of-reading/">Spark a Love of Reading<span class="ar">→</span></a>
                   <a href="/initiatives/evpl-extras/">EVPL Extras!<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
@@ -1240,55 +1493,108 @@
                   <a href="/discover/inspiration/">EVPL’s Blog<span class="ar">→</span></a>
                   <a href="/discover/evpl-news/">EVPL News<span class="ar">→</span></a>
                   <a href="/initiatives/2024-annual-report/">Annual Report<span class="ar">→</span></a>
-                  <a href="/connect/about/strategic-plan/">Strategic Plan<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
-                  <h4><span class="dot"></span>Learning</h4>
-                  <a href="/research-home/">Online Research<span class="ar">→</span></a>
-                  <a href="/explore/research/">Databases A–Z<span class="ar">→</span></a>
-                  <a href="/community-resources/">Community Resources<span class="ar">→</span></a>
+                  <h4><span class="dot"></span>Project Updates</h4>
+                  <a href="/project-updates/">All Project Updates<span class="ar">→</span></a>
+                  <a href="/project-updates/central-renovations/">Central Renovations<span class="ar">→</span></a>
+                  <a href="/project-updates/oaklyn-renovations/">Oaklyn Renovations<span class="ar">→</span></a>
+                  <a href="/project-updates/red-bank-renovations/">Red Bank Renovations<span class="ar">→</span></a>
                 </div>
               </div>
             </div>
 
+            <!-- V3: About -->
             <div class="mm" id="d3e">
               <div class="mi">
                 <div class="mc">
                   <h4><span class="dot"></span>Our Library</h4>
                   <a href="/connect/leadership/?branch=all&department=leadership-team">Leadership<span class="ar">→</span></a>
+                  <a href="/connect/board/">Board of Trustees<span class="ar">→</span></a>
                   <a href="/connect/foundation/">EVPL Foundation<span class="ar">→</span></a>
                   <a href="/connect/about/careers/">Careers<span class="ar">→</span></a>
                 </div>
                 <div class="mc">
-                  <h4><span class="dot"></span>Connect</h4>
-                  <a href="/connect/contact-us/">Contact Us<span class="ar">→</span></a>
+                  <h4><span class="dot"></span>Policies</h4>
                   <a href="/library-policies-and-procedures/">Library Policies<span class="ar">→</span></a>
                   <a href="/ada-disclaimer/">Accessibility<span class="ar">→</span></a>
+                  <a href="/connect/contact-us/">Contact Us<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Community</h4>
+                  <a href="/outreach/">Outreach<span class="ar">→</span></a>
+                  <a href="/do-business-with-evpl/">Do Business with EVPL<span class="ar">→</span></a>
                 </div>
               </div>
             </div>
+
           </header>
 
           <div class="fh">
             <div class="fhc">
-              <h1>Spark a Love of Reading</h1>
-              <p>Join our 2026 reading program at any of our 8 locations.</p>
-              <button class="fhb">Get Started →</button>
+              <h1>Quick access, fewer labels</h1>
+              <p>Everything important lives in one obvious place.</p>
+              <button class="fhb">Explore EVPL →</button>
             </div>
           </div>
 
           <div class="fcr">
-            <div class="fcd"><div class="em">📚</div><h3>Browse Collections</h3><p>Books, eBooks, audiobooks &amp; more.</p></div>
-            <div class="fcd"><div class="em">📅</div><h3>Upcoming Events</h3><p>Storytimes, workshops &amp; clubs.</p></div>
-            <div class="fcd"><div class="em">🔧</div><h3>Maker Studio</h3><p>3D printers, laser cutters &amp; more.</p></div>
+            <div class="fcd"><div class="em">📚</div><h3>Borrow</h3><p>Catalog + digital + Library of Things.</p></div>
+            <div class="fcd"><div class="em">🗓️</div><h3>Events</h3><p>Find what’s happening today.</p></div>
+            <div class="fcd"><div class="em">📰</div><h3>What’s New</h3><p>Initiatives, news, and project updates.</p></div>
           </div>
 
-          <!-- V3 FOOTER VARIATION -->
+          <!-- EVPL APP PROMO (Homepage feature) -->
+          <section class="appsec" aria-label="Get the EVPL App">
+            <div class="appin">
+              <div>
+                <h2 class="apph">Get the EVPL App</h2>
+                <p class="appp">
+                  Download the EVPL mobile app to help you make the most of YOUR library!
+                  Search the catalog, manage your account, place holds, and more — all from your phone.
+                </p>
+
+                <div class="appbtns">
+                  <a class="appbtn" href="https://apps.apple.com/" target="_blank" rel="noopener">
+                    <span class="badge" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M9 19h10"/>
+                        <path d="M5 19h1"/>
+                        <path d="M12 5l-5 9"/>
+                        <path d="M12 5l5 9"/>
+                      </svg>
+                    </span>
+                    Get it on the App Store
+                  </a>
+
+                  <a class="appbtn" href="https://play.google.com/store" target="_blank" rel="noopener">
+                    <span class="badge" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M8 6l12 6-12 6z"/>
+                        <path d="M8 6l7 6-7 6z"/>
+                      </svg>
+                    </span>
+                    Get it on Google Play
+                  </a>
+                </div>
+
+                <div class="appnote">Look for the EVPL app icon in your app store!</div>
+              </div>
+
+              <div class="appvis">
+                <div class="appcard">
+                  <div class="appimgph">APP PROMO IMAGE</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- V3 FOOTER (minimal, simplified structure) -->
           <footer class="ft ftv3">
             <div class="ft-top">
               <div>
                 <h3>Explore EVPL</h3>
-                <p>Initiatives, news, and resources — updated regularly.</p>
+                <p>Fast links for the most-used destinations.</p>
               </div>
               <div class="ft-form">
                 <input type="email" placeholder="Subscribe via email">
@@ -1316,32 +1622,34 @@
 
               <div class="ft-col">
                 <h4>Quick Links</h4>
+                <a href="https://catalog.evpl.org">Catalog</a>
+                <a href="https://events.evpl.org/events">Events Calendar</a>
+                <a href="/services/evpl-maker-studio/">Maker Studio</a>
+                <a href="/library-of-things/">Library of Things</a>
                 <a href="/initiatives/">Initiatives</a>
-                <a href="/discover/evpl-news/">News</a>
-                <a href="/discover/inspiration/">Blog</a>
-                <a href="/research-home/">Online Research</a>
-                <a href="/connect/locations/">Hours &amp; Locations</a>
+                <a href="/project-updates/">Project Updates</a>
               </div>
 
               <div class="ft-col">
-                <h4>Account</h4>
+                <h4>Account &amp; Help</h4>
                 <a href="https://catalog.evpl.org/MyAccount/Home">My Account</a>
                 <a href="/services/library-card/">Get a Card</a>
                 <a href="/services/book-a-librarian/">Book-A-Librarian</a>
-                <a href="/connect/foundation/">Donate</a>
+                <a href="/connect/contact-us/">Contact Us</a>
               </div>
             </div>
 
             <div class="ft-bot">
               <span class="copy">© 2026 Evansville Vanderburgh Public Library</span>
               <nav>
-                <a href="/connect/contact-us/">Contact</a>
+                <a href="/connect/locations/">Hours &amp; Locations</a>
                 <a href="/library-policies-and-procedures/">Policies</a>
-                <a href="/terms-and-conditions/">Terms</a>
                 <a href="/ada-disclaimer/">Accessibility</a>
+                <a href="/connect/foundation/">Donate</a>
               </nav>
             </div>
           </footer>
+
         </div>
       </div>
     </div>
@@ -1362,17 +1670,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td class="ft">Philosophy</td><td>"What do I want to do?"</td><td>"Who am I?"</td><td>"Keep it simple"</td></tr>
-            <tr><td class="ft">Nav Items</td><td>Collections · Services · Programs &amp; Events · <strong>Initiatives</strong> · Research · Kids &amp; Teens · About</td><td>Browse &amp; Borrow · Services &amp; Spaces · <strong>What’s Happening</strong> · Kids · Teens · Support EVPL</td><td>Books &amp; Media · Services &amp; Spaces · Events · <strong>What’s New</strong> · About</td></tr>
-            <tr><td class="ft">Count</td><td>7</td><td>6</td><td>5 (fewest)</td></tr>
-            <tr><td class="ft">Utility Bar</td><td>Dark green (#1e4f44)</td><td>Ivory (#f0e3d1) top strip</td><td>Blue-dark (#006272) + search</td></tr>
-            <tr><td class="ft">Search</td><td>Click → overlay</td><td>Click → overlay</td><td>Always visible</td></tr>
-            <tr><td class="ft">Initiatives + Blog</td><td>Dedicated “Initiatives”</td><td>Under “What’s Happening”</td><td>Under “What’s New”</td></tr>
-            <tr><td class="ft">Footer</td><td>Green, 5-column</td><td>Ivory, 4-column</td><td>Blue, 3-column</td></tr>
+            <tr><td class="ft">Nav Items</td><td>Collections · Services · Programs &amp; Events · Initiatives · Research · Kids &amp; Teens · About</td><td>Browse &amp; Borrow · Services &amp; Spaces · What’s Happening · Kids · Teens · Support EVPL</td><td>Books &amp; Media · Services &amp; Spaces · Events · What’s New · About</td></tr>
+            <tr><td class="ft">Initiatives + Blog</td><td>Dedicated “Initiatives” label</td><td>Under “What’s Happening”</td><td>Under “What’s New”</td></tr>
+            <tr><td class="ft">Project Updates</td><td>Under Initiatives</td><td>Under What’s Happening</td><td>Under What’s New</td></tr>
+            <tr><td class="ft">Maker Studio</td><td>Services</td><td>Services &amp; Spaces</td><td>Services &amp; Spaces</td></tr>
+            <tr><td class="ft">Library of Things</td><td>Collections</td><td>Browse &amp; Borrow</td><td>Books &amp; Media</td></tr>
+            <tr><td class="ft">Footer concept</td><td>Task-based columns</td><td>Audience-based columns</td><td>Minimal quick links</td></tr>
           </tbody>
         </table>
       </div>
     </div>
+
   </div>
 
   <script>

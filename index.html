@@ -1,1007 +1,1459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EVPL Header Navigation Prototypes — v3</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVPL Header Prototypes (Corrected V1/V2/V3)</title>
 
-<!-- Typekit — same as EVPL production -->
-<link rel="stylesheet" href="https://use.typekit.net/ivf2pma.css">
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/ivf2pma.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-/* ===========================================================
-   VARIABLES & RESET
-   =========================================================== */
-:root {
-  --navy: #1b2a4a;
-  --navy-deep: #111d35;
-  --navy-light: #2c4066;
-  --teal: #5f9ea0;
-  --teal-dark: #4a7f81;
-  --teal-light: #7ab8b9;
-  --red: #c1272d;
-  --red-hover: #a82025;
-  --cream: #f5f1eb;
-  --warm-bg: #faf8f5;
-  --g50: #fafafa;
-  --g100: #f5f5f5;
-  --g200: #e5e5e5;
-  --g300: #d4d4d4;
-  --g400: #a3a3a3;
-  --g500: #737373;
-  --g600: #525252;
-  --g700: #404040;
-  --g800: #262626;
-  --g900: #171717;
-  --sans: 'Source Sans 3', 'source-sans-pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
-  --shadow-xl: 0 16px 48px rgba(0,0,0,0.14);
-  --radius: 8px;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:var(--sans);background:#d8d8d8;min-height:100vh;-webkit-font-smoothing:antialiased;}
-a{text-decoration:none;color:inherit;}
-button{cursor:pointer;font-family:var(--sans);border:none;background:none;}
-ul{list-style:none;}
+  <style>
+    :root{
+      /* EVPL brand palette (from your screenshots) */
+      --gdk:#1e4f44;   /* Green Shade 2 */
+      --grn:#759967;   /* Primary Green */
+      --glt:#9fc195;   /* Green Shade 1 */
 
-/* ===========================================================
-   SEARCH ENCORE — Preserved from your header.php
-   =========================================================== */
-/* Hidden inputs for the search function live inside each form.
-   The searchEncore() JS below is your exact code. */
+      --bdk:#006272;   /* Blue Shade 2 */
+      --blu:#6f9ba4;   /* Primary Blue */
+      --blt:#9dd8d7;   /* Blue Shade 1 */
 
-/* ===========================================================
-   PROTOTYPE SELECTOR BAR (fixed top)
-   =========================================================== */
-.selector-bar{
-  position:fixed;top:0;left:0;right:0;z-index:99999;height:52px;
-  background:var(--g900);display:flex;align-items:center;padding:0 28px;gap:16px;
-  box-shadow:0 4px 24px rgba(0,0,0,0.4);
-}
-.selector-bar .label{
-  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.6px;
-  color:var(--teal-light);white-space:nowrap;
-}
-.s-tabs{display:flex;gap:6px;}
-.s-tab{
-  padding:7px 20px;border-radius:6px;font-size:13px;font-weight:500;
-  border:1px solid #374151;background:transparent;color:#d1d5db;
-  transition:all 0.2s;font-family:var(--sans);
-}
-.s-tab:hover{background:#1f2937;border-color:#4b5563;}
-.s-tab.active{background:var(--teal);color:#fff;border-color:var(--teal);}
-.selector-bar .hint{margin-left:auto;color:var(--g500);font-size:12px;font-style:italic;}
+      --red:#be3a34;   /* Red */
+      --redh:#9e2e29;
 
-/* ===========================================================
-   GENERAL LAYOUT
-   =========================================================== */
-.page-wrap{margin-top:52px;}
-.proto{display:none;}.proto.active{display:block;}
+      --ivory:#f0e3d1; /* Pearled Ivory */
+      --slt:#eeebe9;   /* Light Tone */
+      --stn:#b9bdbb;   /* Stone Grey */
+      --og:#736768;    /* Orange Grey */
 
-/* Description card */
-.desc{max-width:1440px;margin:20px auto 0;padding:0 24px;}
-.desc-box{
-  background:#fff;border-radius:12px;padding:20px 28px;
-  display:flex;align-items:flex-start;gap:20px;
-  border-left:4px solid var(--teal);box-shadow:var(--shadow-sm);
-}
-.desc-badge{
-  flex-shrink:0;background:var(--navy);color:#fff;font-size:10px;font-weight:700;
-  padding:5px 14px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;
-}
-.desc-box h2{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:3px;}
-.desc-box p{font-size:13.5px;color:var(--g500);line-height:1.55;}
+      --g50:#fafafa;--g100:#f5f5f5;--g200:#e5e5e5;--g300:#d4d4d4;--g400:#a3a3a3;--g500:#737373;--g600:#525252;--g700:#404040;--g900:#171717;
 
-/* Browser chrome */
-.browser-wrap{max-width:1440px;margin:16px auto 40px;padding:0 24px;}
-.browser-top{
-  background:#e8e8e8;border-radius:12px 12px 0 0;padding:12px 18px;
-  display:flex;align-items:center;gap:12px;
-}
-.b-dots{display:flex;gap:6px;}
-.b-dots span{width:12px;height:12px;border-radius:50%;}
-.b-dots span:nth-child(1){background:#ff5f57;}
-.b-dots span:nth-child(2){background:#febc2e;}
-.b-dots span:nth-child(3){background:#28c840;}
-.b-url{flex:1;background:#fff;border-radius:6px;padding:6px 14px;font-size:12px;color:var(--g500);font-family:monospace;}
-.browser-body{background:#fff;border-radius:0 0 12px 12px;overflow:hidden;box-shadow:var(--shadow-xl);}
-
-/* ===========================================================
-   LOGO PLACEHOLDER — Replace src with your actual logo
-   =========================================================== */
-.evpl-logo{
-  height:48px;width:auto;display:block;
-  /* If the image fails to load, the alt text shows inside this box: */
-}
-.evpl-logo-link{display:flex;align-items:center;flex-shrink:0;}
-
-/* Logo placeholder styling — shows a bordered box with text when no image */
-.logo-placeholder{
-  height:48px;padding:0 16px;display:flex;align-items:center;justify-content:center;
-  border:2px dashed var(--g300);border-radius:var(--radius);color:var(--g400);
-  font-size:11px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;
-  white-space:nowrap;background:var(--g50);
-}
-
-/* ===========================================================
-   DROPDOWN ARROW — custom SVG chevron, animated
-   =========================================================== */
-.nav-arrow{
-  display:inline-flex;margin-left:5px;transition:transform 0.25s ease;
-}
-.nav-arrow svg{
-  width:10px;height:10px;fill:none;stroke:currentColor;
-  stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;
-  opacity:0.45;transition:opacity 0.2s;
-}
-.nav-item:hover .nav-arrow svg,
-.nav-item.open .nav-arrow svg{opacity:0.8;}
-.nav-item.open .nav-arrow{transform:rotate(180deg);}
-
-/* ===========================================================
-   SEARCH PANEL (overlay, slides down)
-   =========================================================== */
-.search-panel{
-  display:none;position:absolute;top:100%;left:0;right:0;z-index:1000;
-  background:#fff;border-bottom:3px solid var(--teal);
-  box-shadow:var(--shadow-lg);padding:28px 40px;
-  animation:panelSlide 0.22s ease;
-}
-.search-panel.open{display:block;}
-@keyframes panelSlide{
-  from{opacity:0;transform:translateY(-6px);}
-  to{opacity:1;transform:translateY(0);}
-}
-.search-inner{max-width:760px;margin:0 auto;display:flex;align-items:stretch;gap:0;
-  border:2px solid var(--g200);border-radius:10px;overflow:hidden;
-  transition:border-color 0.2s;
-}
-.search-inner:focus-within{border-color:var(--teal);}
-.search-inner input[type="text"]{
-  flex:1;border:none;outline:none;padding:14px 18px;font-size:15px;
-  font-family:var(--sans);color:var(--g800);background:#fff;
-}
-.search-inner input[type="text"]::placeholder{color:var(--g400);}
-
-/* Catalog / Website toggle */
-.search-scope{display:flex;border-left:1px solid var(--g200);flex-shrink:0;}
-.search-scope label{
-  display:flex;align-items:center;gap:6px;padding:0 16px;font-size:13px;
-  font-weight:600;color:var(--g500);cursor:pointer;transition:all 0.15s;
-  border-left:1px solid var(--g200);user-select:none;
-}
-.search-scope label:first-child{border-left:none;}
-.search-scope input[type="radio"]{
-  appearance:none;-webkit-appearance:none;width:16px;height:16px;
-  border:2px solid var(--g300);border-radius:50%;position:relative;
-  cursor:pointer;flex-shrink:0;transition:all 0.15s;
-}
-.search-scope input[type="radio"]:checked{border-color:var(--teal);}
-.search-scope input[type="radio"]:checked::after{
-  content:'';position:absolute;top:3px;left:3px;width:6px;height:6px;
-  border-radius:50%;background:var(--teal);
-}
-.search-scope label:has(input:checked){color:var(--navy);background:var(--g50);}
-
-.search-go-btn{
-  padding:0 24px;background:var(--teal);color:#fff;font-size:15px;font-weight:700;
-  border:none;cursor:pointer;transition:background 0.15s;flex-shrink:0;
-  border-left:1px solid rgba(0,0,0,0.1);
-}
-.search-go-btn:hover{background:var(--teal-dark);}
-.search-hint{text-align:center;margin-top:8px;font-size:12px;color:var(--g400);}
-
-/* ===========================================================
-   MEGA MENU — 4 column dropdown
-   =========================================================== */
-.mega{
-  display:none;position:absolute;top:100%;left:0;right:0;z-index:900;
-  background:#fff;border-bottom:3px solid var(--teal);
-  box-shadow:var(--shadow-lg);padding:28px 40px;
-  animation:panelSlide 0.22s ease;
-}
-.mega.open{display:block;}
-.mega-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
-.mega-grid.cols-3{grid-template-columns:repeat(3,1fr);}
-.mega-grid.cols-2{grid-template-columns:repeat(2,1fr);}
-.mega-col h4{
-  font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;
-  color:var(--teal-dark);margin-bottom:12px;padding-bottom:8px;
-  border-bottom:2px solid var(--cream);
-}
-.mega-col a{
-  display:block;font-size:14px;color:var(--g700);padding:5px 0;
-  transition:all 0.12s;line-height:1.4;
-}
-.mega-col a:hover{color:var(--teal-dark);padding-left:4px;}
-.mega-col .mega-highlight{
-  font-weight:700;color:var(--teal-dark);display:flex;align-items:center;gap:4px;
-}
-.mega-col .mega-highlight:hover{color:var(--navy);}
-
-/* ===========================================================
-   HOMEPAGE CONTENT (fake, for context)
-   =========================================================== */
-.fake-hero{
-  height:440px;position:relative;overflow:hidden;
-  background:linear-gradient(135deg,#1b2a4a 0%,#2c4066 40%,#1a3855 100%);
-  display:flex;align-items:center;justify-content:center;
-}
-.fake-hero::before{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse at 25% 50%,rgba(95,158,160,0.12)0%,transparent 60%),
-    radial-gradient(ellipse at 75% 30%,rgba(201,168,76,0.08)0%,transparent 50%);
-}
-.fake-hero-content{text-align:center;position:relative;z-index:1;max-width:640px;padding:0 40px;}
-.fake-hero-content h1{font-size:40px;font-weight:700;color:#fff;margin-bottom:12px;line-height:1.2;}
-.fake-hero-content p{color:rgba(255,255,255,0.65);font-size:17px;line-height:1.6;margin-bottom:24px;}
-.fake-cta{
-  display:inline-block;background:var(--teal);color:#fff;padding:14px 34px;
-  border-radius:var(--radius);font-size:15px;font-weight:600;border:none;
-  transition:all 0.2s;
-}
-.fake-cta:hover{background:var(--teal-dark);}
-.fake-cards{padding:48px 60px;background:var(--warm-bg);display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.fake-card{
-  background:#fff;border-radius:12px;padding:30px 24px;text-align:center;
-  box-shadow:var(--shadow-sm);border:1px solid rgba(0,0,0,0.03);
-}
-.fake-card .fc-ico{font-size:26px;margin-bottom:12px;}
-.fake-card h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px;}
-.fake-card p{font-size:13px;color:var(--g500);line-height:1.5;}
-
-
-/* ===========================================================
-   HEADER V1 — DARK UTILITY / WHITE NAV
-   =========================================================== */
-.h1-wrap{position:relative;}
-.h1-utility{
-  background:var(--navy-deep);padding:0 40px;height:38px;
-  display:flex;align-items:center;justify-content:flex-end;gap:2px;
-}
-.h1-utility a{
-  font-size:13px;color:rgba(255,255,255,0.78);padding:5px 13px;
-  border-radius:4px;transition:all 0.15s;display:flex;align-items:center;gap:6px;
-}
-.h1-utility a:hover{color:#fff;background:rgba(255,255,255,0.07);}
-.h1-utility .u-sep{width:1px;height:15px;background:rgba(255,255,255,0.12);margin:0 4px;}
-.h1-utility .u-donate{
-  background:var(--red);color:#fff;font-weight:700;padding:5px 20px;
-  border-radius:4px;margin-left:4px;letter-spacing:0.3px;
-}
-.h1-utility .u-donate:hover{background:var(--red-hover);}
-
-.h1-main{
-  background:#fff;padding:0 40px;height:62px;
-  display:flex;align-items:center;justify-content:space-between;
-  border-bottom:3px solid var(--teal);
-}
-.h1-nav{display:flex;align-items:center;height:62px;gap:0;}
-.h1-nav>.nav-item,.h1-nav>a{
-  font-size:14.5px;font-weight:600;color:var(--navy);
-  padding:0 14px;height:100%;display:flex;align-items:center;
-  position:relative;transition:color 0.15s;cursor:pointer;
-}
-.h1-nav>.nav-item::after,.h1-nav>a::after{
-  content:'';position:absolute;bottom:-3px;left:14px;right:14px;
-  height:3px;background:transparent;transition:background 0.2s;
-}
-.h1-nav>.nav-item:hover,.h1-nav>a:hover,
-.h1-nav>.nav-item.open{color:var(--teal-dark);}
-.h1-nav>.nav-item:hover::after,.h1-nav>a:hover::after,
-.h1-nav>.nav-item.open::after{background:var(--teal);}
-
-.h1-search-btn{
-  display:flex;align-items:center;gap:7px;padding:8px 18px;
-  background:var(--g100);border:1.5px solid var(--g200);border-radius:var(--radius);
-  font-size:13.5px;color:var(--g500);font-weight:500;transition:all 0.15s;margin-left:10px;
-}
-.h1-search-btn:hover{border-color:var(--teal);color:var(--teal-dark);}
-.h1-search-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-
-/* Utility bar icons */
-.u-ico{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
-
-
-/* ===========================================================
-   HEADER V2 — WARM CREAM UTILITY / WHITE NAV
-   =========================================================== */
-.h2-wrap{position:relative;}
-.h2-utility{
-  background:var(--cream);border-bottom:1px solid rgba(0,0,0,0.05);
-  padding:0 40px;height:38px;display:flex;align-items:center;justify-content:space-between;
-}
-.h2-ul,.h2-ur{display:flex;align-items:center;gap:4px;}
-.h2-utility a{
-  font-size:12.5px;color:var(--g600);padding:4px 12px;border-radius:4px;
-  transition:all 0.15s;font-weight:500;display:flex;align-items:center;gap:5px;
-}
-.h2-utility a:hover{color:var(--navy);background:rgba(0,0,0,0.04);}
-.h2-pill{border-radius:20px!important;padding:5px 17px!important;font-weight:700!important;font-size:12px!important;}
-.h2-pill-red{background:var(--red)!important;color:#fff!important;}
-.h2-pill-red:hover{background:var(--red-hover)!important;}
-.h2-pill-navy{background:var(--navy)!important;color:#fff!important;}
-.h2-pill-navy:hover{background:var(--navy-deep)!important;}
-
-.h2-main{
-  background:#fff;padding:0 40px;height:62px;
-  display:flex;align-items:center;justify-content:space-between;
-  box-shadow:0 2px 8px rgba(0,0,0,0.04);
-}
-.h2-nav{display:flex;align-items:center;height:62px;gap:0;}
-.h2-nav>.nav-item,.h2-nav>a{
-  font-size:14.5px;font-weight:600;color:var(--g700);
-  padding:0 13px;height:100%;display:flex;align-items:center;
-  position:relative;transition:color 0.15s;cursor:pointer;
-}
-.h2-nav>.nav-item:hover,.h2-nav>a:hover,.h2-nav>.nav-item.open{color:var(--teal-dark);}
-.h2-search-btn{
-  display:flex;align-items:center;gap:7px;padding:8px 20px;
-  border:2px solid var(--g200);border-radius:24px;
-  font-size:13px;color:var(--g500);font-weight:500;transition:all 0.15s;margin-left:12px;
-}
-.h2-search-btn:hover{border-color:var(--teal);color:var(--teal-dark);}
-.h2-search-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-
-
-/* ===========================================================
-   HEADER V3 — SEARCH ALWAYS VISIBLE IN TOP BAR
-   =========================================================== */
-.h3-wrap{position:relative;}
-.h3-top{
-  background:var(--navy);padding:0 32px;height:56px;
-  display:flex;align-items:center;gap:20px;
-}
-.h3-search-bar{
-  flex:1;max-width:540px;display:flex;align-items:stretch;
-  background:#fff;border-radius:6px;overflow:hidden;height:36px;
-}
-.h3-search-bar input{
-  flex:1;border:none;outline:none;padding:0 14px;font-size:14px;
-  font-family:var(--sans);color:var(--g800);
-}
-.h3-search-bar input::placeholder{color:var(--g400);}
-.h3-scope{display:flex;height:100%;}
-.h3-scope label{
-  display:flex;align-items:center;gap:5px;padding:0 12px;font-size:12px;
-  font-weight:600;color:var(--g500);cursor:pointer;border-left:1px solid var(--g200);
-  transition:all 0.15s;user-select:none;
-}
-.h3-scope input[type="radio"]{
-  appearance:none;-webkit-appearance:none;width:14px;height:14px;
-  border:2px solid var(--g300);border-radius:50%;position:relative;
-  cursor:pointer;flex-shrink:0;transition:all 0.15s;
-}
-.h3-scope input[type="radio"]:checked{border-color:var(--teal);}
-.h3-scope input[type="radio"]:checked::after{
-  content:'';position:absolute;top:2px;left:2px;width:6px;height:6px;
-  border-radius:50%;background:var(--teal);
-}
-.h3-scope label:has(input:checked){color:var(--navy);background:var(--g50);}
-.h3-go{
-  padding:0 16px;background:var(--teal-dark);color:#fff;font-size:14px;font-weight:700;
-  border:none;cursor:pointer;transition:background 0.15s;
-}
-.h3-go:hover{background:var(--teal);}
-.h3-actions{display:flex;align-items:center;gap:2px;flex-shrink:0;margin-left:auto;}
-.h3-actions a{
-  font-size:12.5px;color:rgba(255,255,255,0.78);padding:5px 11px;
-  border-radius:4px;transition:all 0.15s;display:flex;align-items:center;gap:5px;
-}
-.h3-actions a:hover{color:#fff;background:rgba(255,255,255,0.07);}
-.h3-actions .h3-donate{
-  background:var(--red);color:#fff;font-weight:700;padding:5px 16px;
-  border-radius:4px;margin-left:4px;font-size:12.5px;
-}
-.h3-actions .h3-donate:hover{background:var(--red-hover);}
-
-.h3-nav{
-  background:#fff;padding:0 40px;height:46px;
-  display:flex;align-items:center;justify-content:center;
-  border-bottom:2px solid var(--g200);
-}
-.h3-nav>.nav-item,.h3-nav>a{
-  font-size:13.5px;font-weight:700;color:var(--navy);text-transform:uppercase;
-  letter-spacing:0.5px;padding:0 16px;height:46px;display:flex;align-items:center;
-  position:relative;transition:color 0.15s;cursor:pointer;
-}
-.h3-nav>.nav-item::after,.h3-nav>a::after{
-  content:'';position:absolute;bottom:-2px;left:16px;right:16px;
-  height:2px;background:transparent;transition:background 0.2s;
-}
-.h3-nav>.nav-item:hover,.h3-nav>a:hover,.h3-nav>.nav-item.open{color:var(--teal-dark);}
-.h3-nav>.nav-item:hover::after,.h3-nav>a:hover::after,
-.h3-nav>.nav-item.open::after{background:var(--teal);}
-
-
-/* ===========================================================
-   COMPARE VIEW
-   =========================================================== */
-.cmp-section{max-width:1440px;margin:20px auto;padding:0 24px;}
-.cmp-section h2{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:16px;}
-.cmp-table{
-  width:100%;border-collapse:collapse;background:#fff;
-  border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm);font-size:13.5px;
-}
-.cmp-table th{background:var(--navy);color:#fff;padding:14px 20px;text-align:left;font-weight:600;font-size:13px;}
-.cmp-table td{padding:12px 20px;border-bottom:1px solid var(--g100);color:var(--g700);vertical-align:top;line-height:1.55;}
-.cmp-table tr:last-child td{border-bottom:none;}
-.cmp-table .feat{font-weight:700;color:var(--navy);white-space:nowrap;}
-.stack-item{background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-md);margin-bottom:16px;}
-.stack-label{background:var(--teal);color:#fff;padding:8px 20px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
-
-@media(max-width:1200px){
-  .h1-main,.h1-utility,.h2-main,.h2-utility,.h3-top,.h3-nav,.mega,.search-panel{padding-left:20px!important;padding-right:20px!important;}
-  .mega-grid{grid-template-columns:repeat(2,1fr)!important;}
-}
-</style>
-</head>
-<body>
-
-<!-- ============================================================
-     SEARCH ENCORE — YOUR EXACT JAVASCRIPT FROM header.php
-     ============================================================ -->
-<script type="text/javascript">
-function searchEncore(form) {
-    var encoreBaseURLInput, encoreBaseURL, searchInput, scopeInput, searchString, scopeString, locationHref, charRegExString, base64Regex;
-    var base64_encoding_map = { "=": "PQ==", "/": "Lw==", "\\": "XA==", "?": "Pw==" };
-    var escapeRegExp = function (string) {
-        return string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
-    };
-    encoreBaseURLInput = document.getElementById("encoreBase");
-    searchInput = form.getElementsByClassName("search-form")[0];
-    if (searchInput && encoreBaseURLInput) {
-        encoreBaseURL = encoreBaseURLInput.value;
-        searchString = searchInput.value;
-        searchString = searchString.replace(/C__S|__Orightresult__U/g, "");
-        for (var specialChar in base64_encoding_map) {
-            charRegExString = escapeRegExp(specialChar);
-            base64Regex = new RegExp(charRegExString, "g");
-            searchString = searchString.replace(base64Regex, base64_encoding_map[specialChar]);
-        }
-        searchString = encodeURIComponent(searchString);
-        scopeInput = document.getElementById('encoreSearchLocation');
-        if (scopeInput) { scopeString = scopeInput.value; }
-        if (scopeString) {
-            scopeString = encodeURIComponent(scopeString);
-            locationHref = encoreBaseURL + searchString + scopeString;
-        } else {
-            locationHref = encoreBaseURL + searchString;
-        }
-        languageSetting = document.getElementById("encoreLanguage");
-        if (languageSetting) { locationHref = locationHref + "?lang=" + languageSetting.value; }
-        window.open(locationHref, "catalog");
+      --sans:'Source Sans 3','source-sans-pro',-apple-system,sans-serif;
     }
-    return false;
-}
-</script>
 
-<!-- SELECTOR BAR -->
-<div class="selector-bar">
-  <span class="label">EVPL Nav</span>
-  <div class="s-tabs">
-    <button class="s-tab active" onclick="showP('v1',this)">V1: Dark Top Bar</button>
-    <button class="s-tab" onclick="showP('v2',this)">V2: Warm Top Bar</button>
-    <button class="s-tab" onclick="showP('v3',this)">V3: Search Always On</button>
-    <button class="s-tab" onclick="showP('cmp',this)">Compare</button>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:var(--sans);background:#ccc;-webkit-font-smoothing:antialiased;}
+    a{text-decoration:none;color:inherit;}
+    button{cursor:pointer;font-family:var(--sans);border:none;background:none;}
+
+    /* top selector */
+    .sel{
+      position:fixed;top:0;left:0;right:0;z-index:99999;height:50px;
+      background:var(--g900);display:flex;align-items:center;padding:0 28px;gap:14px;
+      box-shadow:0 4px 20px rgba(0,0,0,.4);
+    }
+    .sel .lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--glt);}
+    .tabs{display:flex;gap:5px;}
+    .tb{
+      padding:6px 18px;border-radius:6px;font-size:13px;font-weight:500;
+      border:1px solid #374151;background:0;color:#d1d5db;transition:.2s;
+    }
+    .tb:hover{background:#1f2937;}
+    .tb.on{background:var(--blu);color:#fff;border-color:var(--blu);}
+    .sel .ht{margin-left:auto;color:var(--g500);font-size:11px;}
+
+    .wrap{margin-top:50px;position:relative;}
+    .pn{
+      opacity:0;transform:translateY(10px);
+      transition:opacity .3s ease,transform .3s ease;
+      position:absolute;top:0;left:0;right:0;
+      pointer-events:none;visibility:hidden;
+    }
+    .pn.on{
+      opacity:1;transform:translateY(0);
+      position:relative;pointer-events:auto;visibility:visible;
+    }
+
+    .ds{max-width:1400px;margin:18px auto 0;padding:0 22px;}
+    .db{
+      background:#fff;border-radius:10px;padding:18px 24px;display:flex;gap:16px;align-items:flex-start;
+      border-left:4px solid var(--blu);box-shadow:0 1px 3px rgba(0,0,0,.04);
+    }
+    .dtag{
+      flex-shrink:0;background:var(--gdk);color:#fff;font-size:10px;font-weight:700;
+      padding:4px 13px;border-radius:16px;text-transform:uppercase;letter-spacing:1px;
+    }
+    .db h2{font-size:16px;font-weight:700;color:var(--gdk);margin-bottom:2px;}
+    .db p{font-size:13px;color:var(--g500);line-height:1.5;}
+
+    .bf{max-width:1400px;margin:14px auto 36px;padding:0 22px;}
+    .bt{
+      background:#e8e8e8;border-radius:11px 11px 0 0;padding:11px 16px;
+      display:flex;align-items:center;gap:11px;
+    }
+    .dots{display:flex;gap:5px;}
+    .dots i{width:11px;height:11px;border-radius:50%;display:block;}
+    .dots i:nth-child(1){background:#ff5f57;}
+    .dots i:nth-child(2){background:#febc2e;}
+    .dots i:nth-child(3){background:#28c840;}
+    .url{
+      flex:1;background:#fff;border-radius:5px;padding:5px 12px;font-size:11.5px;color:var(--g500);
+      font-family:monospace;
+    }
+    .bb{background:#fff;border-radius:0 0 11px 11px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,.14);}
+
+    /* logo */
+    .ll{display:flex;align-items:center;flex-shrink:0;}
+    .limg{height:44px;width:auto;}
+    .lph{
+      height:44px;padding:0 14px;display:flex;align-items:center;border:2px dashed var(--stn);
+      border-radius:8px;color:var(--og);font-size:10px;font-weight:600;letter-spacing:.5px;
+      text-transform:uppercase;background:var(--slt);
+    }
+    .lph.inv{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.5);background:rgba(255,255,255,.05);}
+
+    .ic{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+    .cv{display:inline-flex;margin-left:5px;transition:transform .25s cubic-bezier(.4,0,.2,1);}
+    .cv svg{
+      width:10px;height:10px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;
+      opacity:.35;transition:opacity .2s;
+    }
+    .ni:hover .cv svg,.ni.open .cv svg{opacity:.8;}
+    .ni.open .cv{transform:rotate(180deg);}
+
+    /* search overlay + mega menus */
+    .sp{
+      display:none;position:absolute;top:100%;left:0;right:0;z-index:1000;background:#fff;
+      border-bottom:3px solid var(--blu);box-shadow:0 8px 32px rgba(0,0,0,.1);
+      padding:26px 40px;animation:sd .2s ease;
+    }
+    .sp.open{display:block;}
+    @keyframes sd{from{opacity:0;transform:translateY(-5px);}to{opacity:1;transform:translateY(0);}}
+
+    .sf{
+      max-width:680px;margin:0 auto;display:flex;align-items:stretch;border:2px solid var(--g200);
+      border-radius:10px;overflow:hidden;transition:border-color .2s;
+    }
+    .sf:focus-within{border-color:var(--blu);}
+    .sf input[type=text]{
+      flex:1;border:0;outline:0;padding:13px 16px;font-size:15px;font-family:var(--sans);
+      color:var(--g700);
+    }
+    .sf input::placeholder{color:var(--g400);}
+    .sc{display:flex;border-left:1px solid var(--g200);}
+    .sc label{
+      display:flex;align-items:center;gap:6px;padding:0 15px;font-size:13px;font-weight:600;color:var(--g500);
+      cursor:pointer;transition:.15s;user-select:none;border-left:1px solid var(--g200);
+    }
+    .sc label:first-child{border-left:0;}
+    .sc input[type=radio]{
+      appearance:none;-webkit-appearance:none;width:15px;height:15px;border:2px solid var(--g300);
+      border-radius:50%;position:relative;cursor:pointer;transition:.15s;
+    }
+    .sc input:checked{border-color:var(--blu);}
+    .sc input:checked::after{content:'';position:absolute;top:2.5px;left:2.5px;width:6px;height:6px;border-radius:50%;background:var(--blu);}
+    .sc label:has(input:checked){color:var(--gdk);background:var(--g50);}
+    .sg{padding:0 22px;background:var(--blu);color:#fff;font-size:15px;font-weight:700;border:0;cursor:pointer;transition:.15s;}
+    .sg:hover{background:var(--bdk);}
+    .sh{text-align:center;margin-top:8px;font-size:11.5px;color:var(--g400);}
+
+    .mm{
+      display:none;position:absolute;top:100%;left:0;right:0;z-index:900;background:#fff;
+      box-shadow:0 12px 40px rgba(0,0,0,.1);animation:sd .2s ease;
+    }
+    .mm.open{display:block;}
+    .mm::before{content:'';display:block;height:3px;background:linear-gradient(90deg,var(--grn),var(--blu));}
+    .mi{display:flex;max-width:1100px;margin:0 auto;}
+    .mc{flex:1;padding:26px 30px;border-right:1px solid var(--slt);}
+    .mc:last-child{border-right:0;}
+    .mc h4{
+      font-size:11.5px;font-weight:700;color:var(--gdk);text-transform:uppercase;letter-spacing:1px;
+      margin-bottom:14px;padding-bottom:9px;border-bottom:2px solid var(--slt);
+      display:flex;align-items:center;gap:7px;
+    }
+    .mc h4 .dot{width:5px;height:5px;border-radius:50%;background:var(--grn);}
+    .mc a{
+      display:flex;align-items:center;font-size:14.5px;color:var(--og);
+      padding:8px 0;position:relative;transition:all .18s;line-height:1.3;
+    }
+    .mc a::before{content:'';width:0;height:2px;background:var(--grn);position:absolute;bottom:0;left:0;transition:width .25s cubic-bezier(.4,0,.2,1);}
+    .mc a:hover{color:var(--gdk);}
+    .mc a:hover::before{width:100%;}
+    .mc a .ar{display:inline-block;opacity:0;transform:translateX(-6px);transition:all .2s;margin-left:6px;color:var(--grn);font-size:12px;}
+    .mc a:hover .ar{opacity:1;transform:translateX(0);}
+    .mc a.cta{color:var(--bdk);font-weight:700;margin-top:6px;padding-top:10px;border-top:1px solid var(--slt);}
+    .mc a.cta::before{display:none;}
+    .mc a.cta:hover{color:var(--gdk);}
+
+    /* sample page content */
+    .fh{
+      height:380px;background:linear-gradient(135deg,var(--gdk),#1a5a4e 50%,var(--bdk));
+      display:flex;align-items:center;justify-content:center;position:relative;
+    }
+    .fhc{text-align:center;position:relative;z-index:1;max-width:580px;padding:0 40px;}
+    .fhc h1{font-size:36px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.2;}
+    .fhc p{color:rgba(255,255,255,.6);font-size:16px;margin-bottom:20px;}
+    .fhb{display:inline-block;background:var(--grn);color:#fff;padding:12px 30px;border-radius:8px;font-size:15px;font-weight:600;transition:.2s;}
+    .fhb:hover{background:var(--gdk);}
+
+    .fcr{
+      padding:40px 50px;background:var(--slt);
+      display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+    }
+    .fcd{
+      background:#fff;border-radius:10px;padding:26px 20px;text-align:center;
+      box-shadow:0 1px 3px rgba(0,0,0,.03);
+    }
+    .fcd .em{font-size:22px;margin-bottom:10px;}
+    .fcd h3{font-size:14px;font-weight:700;color:var(--gdk);margin-bottom:3px;}
+    .fcd p{font-size:12px;color:var(--g500);}
+
+    /* ===== HEADERS ===== */
+    .h1{position:relative;}
+    .h1u{
+      background:var(--gdk);padding:0 36px;height:36px;display:flex;align-items:center;justify-content:flex-end;gap:2px;
+    }
+    .h1u a{
+      font-size:12.5px;color:rgba(255,255,255,.78);padding:4px 12px;border-radius:4px;transition:.15s;display:flex;align-items:center;gap:5px;
+    }
+    .h1u a:hover{color:#fff;background:rgba(255,255,255,.08);}
+    .h1u .sep{width:1px;height:14px;background:rgba(255,255,255,.12);margin:0 3px;}
+    .h1u .dn{background:var(--red);color:#fff;font-weight:700;padding:4px 18px;border-radius:4px;margin-left:4px;}
+    .h1u .dn:hover{background:var(--redh);}
+
+    .h1m{
+      background:#fff;padding:0 36px;height:60px;display:flex;align-items:center;justify-content:space-between;
+      border-bottom:3px solid var(--grn);
+    }
+    .h1n{display:flex;align-items:center;height:60px;}
+    .h1n>.ni{
+      font-size:14.5px;font-weight:600;color:var(--gdk);padding:0 13px;height:100%;
+      display:flex;align-items:center;position:relative;transition:.15s;cursor:pointer;
+    }
+    .h1n>.ni::after{
+      content:'';position:absolute;bottom:-3px;left:13px;right:13px;height:3px;background:transparent;transition:.2s;
+    }
+    .h1n>.ni:hover,.h1n>.ni.open{color:var(--grn);}
+    .h1n>.ni:hover::after,.h1n>.ni.open::after{background:var(--grn);}
+    .h1sb{
+      display:flex;align-items:center;gap:6px;padding:7px 16px;background:var(--slt);
+      border:1.5px solid var(--stn);border-radius:8px;font-size:13px;color:var(--og);
+      font-weight:500;transition:.15s;margin-left:8px;
+    }
+    .h1sb:hover{border-color:var(--blu);color:var(--bdk);}
+    .h1sb svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+
+    .h2{position:relative;}
+    .h2u{background:#fff;border-bottom:1px solid var(--g200);padding:0 36px;height:36px;display:flex;align-items:center;justify-content:space-between;}
+    .h2l,.h2r{display:flex;align-items:center;gap:3px;}
+    .h2u a{font-size:12px;color:var(--og);padding:4px 10px;border-radius:4px;transition:.15s;font-weight:500;display:flex;align-items:center;gap:5px;}
+    .h2u a:hover{color:var(--gdk);background:rgba(0,0,0,.03);}
+    .pl{border-radius:18px!important;padding:4px 16px!important;font-weight:700!important;font-size:11.5px!important;}
+    .pl-r{background:var(--red)!important;color:#fff!important;}
+    .pl-r:hover{background:var(--redh)!important;}
+    .pl-g{background:var(--gdk)!important;color:#fff!important;}
+
+    .h2m{
+      background:#fff;padding:0 36px;height:60px;display:flex;align-items:center;justify-content:space-between;
+      box-shadow:0 1px 6px rgba(0,0,0,.03);
+    }
+    .h2n{display:flex;align-items:center;height:60px;}
+    .h2n>.ni{
+      font-size:14.5px;font-weight:600;color:var(--g700);padding:0 12px;height:100%;
+      display:flex;align-items:center;position:relative;transition:.15s;cursor:pointer;
+    }
+    .h2n>.ni:hover,.h2n>.ni.open{color:var(--grn);}
+    .h2sb{
+      display:flex;align-items:center;gap:6px;padding:7px 18px;border:2px solid var(--stn);
+      border-radius:22px;font-size:13px;color:var(--og);font-weight:500;transition:.15s;margin-left:10px;
+    }
+    .h2sb:hover{border-color:var(--blu);color:var(--bdk);}
+    .h2sb svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+
+    .h3{position:relative;}
+    .h3t{
+      background:var(--bdk);padding:0 32px;height:64px;display:flex;align-items:center;gap:24px;
+    }
+    .h3bar{
+      flex:1;max-width:520px;display:flex;align-items:stretch;background:rgba(255,255,255,.08);
+      border:1.5px solid rgba(255,255,255,.15);border-radius:8px;overflow:hidden;height:40px;transition:all .25s ease;
+    }
+    .h3bar:focus-within{background:#fff;border-color:#fff;box-shadow:0 4px 16px rgba(0,0,0,.15);}
+    .h3bar input{
+      flex:1;border:0;outline:0;padding:0 16px;font-size:14.5px;font-family:var(--sans);
+      color:rgba(255,255,255,.9);background:transparent;transition:color .2s;
+    }
+    .h3bar input::placeholder{color:rgba(255,255,255,.35);transition:color .2s;}
+    .h3bar:focus-within input{color:var(--g700);}
+    .h3bar:focus-within input::placeholder{color:var(--g400);}
+    .h3sc{display:flex;height:100%;border-left:1px solid rgba(255,255,255,.1);transition:border-color .2s;}
+    .h3bar:focus-within .h3sc{border-left-color:var(--g200);}
+    .h3sc label{display:flex;align-items:center;gap:5px;padding:0 13px;font-size:12px;font-weight:600;color:rgba(255,255,255,.55);cursor:pointer;transition:.2s;user-select:none;}
+    .h3bar:focus-within .h3sc label{color:var(--g500);}
+    .h3bar:focus-within .h3sc label:has(input:checked){color:var(--gdk);background:var(--g50);}
+    .h3sc input[type=radio]{appearance:none;-webkit-appearance:none;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-radius:50%;position:relative;cursor:pointer;transition:.15s;}
+    .h3bar:focus-within .h3sc input[type=radio]{border-color:var(--g300);}
+    .h3sc input:checked{border-color:var(--grn)!important;}
+    .h3sc input:checked::after{content:'';position:absolute;top:2px;left:2px;width:6px;height:6px;border-radius:50%;background:var(--grn);}
+    .h3go{padding:0 18px;background:rgba(255,255,255,.12);color:#fff;font-size:14px;font-weight:700;border:0;cursor:pointer;transition:all .2s;}
+    .h3bar:focus-within .h3go{background:var(--grn);}
+    .h3go:hover{background:var(--grn)!important;}
+
+    .h3act{display:flex;align-items:center;gap:1px;flex-shrink:0;margin-left:auto;}
+    .h3act a{font-size:12px;color:rgba(255,255,255,.78);padding:5px 10px;border-radius:4px;transition:.15s;display:flex;align-items:center;gap:4px;}
+    .h3act a:hover{color:#fff;background:rgba(255,255,255,.08);}
+    .h3act .dn{background:var(--red);color:#fff;font-weight:700;padding:5px 15px;border-radius:4px;margin-left:3px;font-size:12px;}
+    .h3act .dn:hover{background:var(--redh);}
+
+    .h3nv{
+      background:#fff;padding:0 36px;height:46px;display:flex;align-items:center;justify-content:center;border-bottom:2px solid var(--slt);
+    }
+    .h3nv>.ni{
+      font-size:13.5px;font-weight:700;color:var(--gdk);text-transform:uppercase;letter-spacing:.5px;
+      padding:0 16px;height:46px;display:flex;align-items:center;position:relative;transition:.15s;cursor:pointer;
+    }
+    .h3nv>.ni::after{content:'';position:absolute;bottom:-2px;left:16px;right:16px;height:2px;background:transparent;transition:.2s;}
+    .h3nv>.ni:hover,.h3nv>.ni.open{color:var(--grn);}
+    .h3nv>.ni:hover::after,.h3nv>.ni.open::after{background:var(--grn);}
+
+    /* compare table */
+    .cw{max-width:1400px;margin:18px auto;padding:0 22px;}
+    .cw h2{font-size:19px;font-weight:700;color:var(--gdk);margin-bottom:14px;}
+    .ct{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);font-size:13px;}
+    .ct th{background:var(--gdk);color:#fff;padding:12px 18px;text-align:left;font-weight:600;}
+    .ct td{padding:11px 18px;border-bottom:1px solid var(--slt);color:var(--g700);vertical-align:top;line-height:1.5;}
+    .ct tr:last-child td{border:0;}
+    .ct .ft{font-weight:700;color:var(--gdk);white-space:nowrap;}
+
+    /* ===== FOOTERS (base + per-variant skins) ===== */
+    .ft{margin-top:0;}
+    .ft-wrap{padding:0;margin:0;}
+
+    /* shared footer structure */
+    .ft-top{
+      padding:34px 50px;display:flex;align-items:center;justify-content:space-between;gap:40px;
+    }
+    .ft-top h3{font-size:22px;font-weight:800;line-height:1.25;margin-bottom:4px;}
+    .ft-top p{font-size:13px;line-height:1.4;opacity:.85;}
+    .ft-form{display:flex;flex-shrink:0;}
+    .ft-form input{
+      padding:11px 16px;border-radius:10px 0 0 10px;font-size:13px;font-family:var(--sans);
+      width:260px;outline:none;border:2px solid transparent;
+    }
+    .ft-form button{
+      padding:11px 20px;border-radius:0 10px 10px 0;font-size:13px;font-weight:800;
+      border:0;white-space:nowrap;transition:.15s;
+    }
+    .ft-grid{
+      padding:0 50px 34px;display:grid;gap:28px;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+    .ft-grid.cols-5{grid-template-columns:1.2fr repeat(4,1fr);}
+    .ft-grid.cols-4{grid-template-columns:1.4fr repeat(3,1fr);}
+    .ft-grid.cols-3{grid-template-columns:1.6fr repeat(2,1fr);}
+    .ft-col{padding-top:26px;}
+    .ft-col h4{
+      font-size:11.5px;font-weight:900;text-transform:uppercase;letter-spacing:1px;
+      margin-bottom:12px;padding-bottom:7px;border-bottom:2px solid rgba(255,255,255,.12);
+    }
+    .ft-col a{display:block;font-size:13.5px;padding:4px 0;transition:.15s;}
+    .ft-brand{display:flex;flex-direction:column;gap:12px;}
+    .ft-logo{height:44px;width:auto;opacity:.9;}
+    .ft-addr{font-size:12.5px;line-height:1.5;opacity:.8;}
+    .ft-soc{display:flex;gap:8px;margin-top:6px;}
+    .ft-soc a{
+      width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      transition:.15s;
+    }
+    .ft-soc svg{width:14px;height:14px;fill:currentColor;}
+
+    .ft-bot{
+      padding:16px 50px;display:flex;justify-content:space-between;align-items:center;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+    .ft-bot .copy{font-size:11.5px;opacity:.7;}
+    .ft-bot nav{display:flex;gap:18px;flex-wrap:wrap;}
+    .ft-bot nav a{font-size:11.5px;font-weight:700;opacity:.75;transition:.15s;}
+    .ft-bot nav a:hover{opacity:1;}
+
+    /* V1 footer skin: deep green */
+    .ftv1{background:var(--gdk);color:#fff;}
+    .ftv1 .ft-top{background:linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,0));}
+    .ftv1 .ft-form input{background:rgba(255,255,255,.10);color:#fff;border-color:rgba(255,255,255,.16);}
+    .ftv1 .ft-form input::placeholder{color:rgba(255,255,255,.45);}
+    .ftv1 .ft-form input:focus{border-color:var(--glt);background:rgba(255,255,255,.14);}
+    .ftv1 .ft-form button{background:var(--grn);color:#fff;}
+    .ftv1 .ft-form button:hover{background:var(--glt);color:var(--gdk);}
+    .ftv1 .ft-col h4{color:var(--glt);}
+    .ftv1 .ft-col a{color:rgba(255,255,255,.72);}
+    .ftv1 .ft-col a:hover{color:#fff;}
+    .ftv1 .ft-soc a{background:rgba(255,255,255,.10);color:#fff;}
+    .ftv1 .ft-soc a:hover{background:var(--grn);}
+
+    /* V2 footer skin: ivory + green/blue accents */
+    .ftv2{background:var(--ivory);color:var(--gdk);}
+    .ftv2 .ft-grid{border-top:1px solid rgba(30,79,68,.14);}
+    .ftv2 .ft-col h4{color:var(--bdk);border-bottom-color:rgba(0,98,114,.22);}
+    .ftv2 .ft-col a{color:rgba(115,103,104,.95);}
+    .ftv2 .ft-col a:hover{color:var(--gdk);}
+    .ftv2 .ft-top{background:linear-gradient(90deg, rgba(0,98,114,.06), rgba(30,79,68,.05));}
+    .ftv2 .ft-form input{background:#fff;color:var(--g700);border-color:rgba(185,189,187,.8);}
+    .ftv2 .ft-form input:focus{border-color:var(--blu);}
+    .ftv2 .ft-form button{background:var(--bdk);color:#fff;}
+    .ftv2 .ft-form button:hover{background:var(--gdk);}
+    .ftv2 .ft-soc a{background:rgba(0,98,114,.08);color:var(--bdk);}
+    .ftv2 .ft-soc a:hover{background:var(--bdk);color:#fff;}
+    .ftv2 .ft-bot{border-top:1px solid rgba(30,79,68,.14);}
+
+    /* V3 footer skin: blue-dark */
+    .ftv3{background:var(--bdk);color:#fff;}
+    .ftv3 .ft-top{background:linear-gradient(90deg, rgba(157,216,215,.18), rgba(255,255,255,0));}
+    .ftv3 .ft-form input{background:rgba(255,255,255,.10);color:#fff;border-color:rgba(255,255,255,.16);}
+    .ftv3 .ft-form input::placeholder{color:rgba(255,255,255,.45);}
+    .ftv3 .ft-form input:focus{border-color:var(--blt);background:rgba(255,255,255,.14);}
+    .ftv3 .ft-form button{background:var(--blt);color:var(--bdk);}
+    .ftv3 .ft-form button:hover{background:#fff;}
+    .ftv3 .ft-col h4{color:var(--blt);}
+    .ftv3 .ft-col a{color:rgba(255,255,255,.75);}
+    .ftv3 .ft-col a:hover{color:#fff;}
+    .ftv3 .ft-soc a{background:rgba(255,255,255,.10);color:#fff;}
+    .ftv3 .ft-soc a:hover{background:var(--blt);color:var(--bdk);}
+
+    @media(max-width:1100px){
+      .mi{flex-wrap:wrap;}
+      .mc{min-width:200px;}
+      .fcr{grid-template-columns:1fr; padding:28px 20px;}
+      .ft-top{flex-direction:column;align-items:flex-start;}
+      .ft-form{width:100%;}
+      .ft-form input{width:100%;}
+      .ft-grid.cols-5,.ft-grid.cols-4,.ft-grid.cols-3{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:640px){
+      .ft-grid.cols-5,.ft-grid.cols-4,.ft-grid.cols-3{grid-template-columns:1fr;}
+      .ft-bot{flex-direction:column;align-items:flex-start;gap:10px;}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- icons -->
+  <svg style="display:none"><defs>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></symbol>
+    <symbol id="i-tw" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+    <symbol id="i-yt" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+    <symbol id="i-li" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+  </defs></svg>
+
+  <script>
+    function searchEncore(f){
+      var b,u,s,ss,sc,h;
+      var m={"=":"PQ==","/":"Lw==","\\":"XA==","?":"Pw=="};
+      var e=function(x){return x.replace(/([.*+?^=!:${}()|\[\]\/\\])/g,"\\$1");};
+      b=f.querySelector('[name=encoreBase]');
+      s=f.getElementsByClassName("search-form")[0];
+      if(s&&b){
+        u=b.value; ss=s.value;
+        ss=ss.replace(/C__S|__Orightresult__U/g,"");
+        for(var c in m) ss=ss.replace(new RegExp(e(c),"g"),m[c]);
+        ss=encodeURIComponent(ss);
+        var si=document.getElementById('encoreSearchLocation');
+        if(si) sc=si.value;
+        h=sc?u+ss+encodeURIComponent(sc):u+ss;
+        var l=document.getElementById("encoreLanguage");
+        if(l) h+="?lang="+l.value;
+        window.open(h,"catalog");
+      }
+      return false;
+    }
+  </script>
+
+  <div class="sel">
+    <span class="lbl">EVPL Nav</span>
+    <div class="tabs">
+      <button class="tb on" onclick="show('v1',this)">V1: Task-Based</button>
+      <button class="tb" onclick="show('v2',this)">V2: Audience-Based</button>
+      <button class="tb" onclick="show('v3',this)">V3: Simplified</button>
+      <button class="tb" onclick="show('cmp',this)">Compare</button>
+    </div>
+    <span class="ht">Corrected IA · No duplicated sections inside a prototype header</span>
   </div>
-  <span class="hint">Click nav items for mega-menus · Click Search for search panel</span>
-</div>
 
-<div class="page-wrap">
+  <div class="wrap">
 
-<!-- =============================================================
-     V1 — DARK UTILITY / WHITE NAV
-     ============================================================= -->
-<div class="proto active" id="p-v1">
-  <div class="desc"><div class="desc-box"><span class="desc-badge">V1</span><div>
-    <h2>Dark Utility Bar + White Navigation</h2>
-    <p>NYPL / Seattle PL inspired. Navy utility row for account links &amp; Donate. White main nav with teal accent line. Search opens as overlay with your exact Catalog / Website toggle. All links point to real EVPL URLs.</p>
-  </div></div></div>
-  <div class="browser-wrap"><div class="browser-top"><div class="b-dots"><span></span><span></span><span></span></div><div class="b-url">https://www.evpl.org</div></div>
-  <div class="browser-body">
-    <header class="h1-wrap" id="hdr1">
-      <div class="h1-utility">
-        <a href="https://www.evpl.org/connect/locations/">
-          <svg class="u-ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Hours &amp; Locations</a>
-        <a href="https://catalog.evpl.org/MyAccount/Home">
-          <svg class="u-ico" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          My Account</a>
-        <span class="u-sep"></span>
-        <a href="https://www.evpl.org/services/library-card/">Get a Card</a>
-        <a href="https://www.evpl.org/connect/foundation/" class="u-donate">♥&nbsp; Donate</a>
-      </div>
-      <div class="h1-main">
-        <a href="https://www.evpl.org" class="evpl-logo-link">
-          <!-- ★ LOGO PLACEHOLDER — Replace the src below with your logo file path ★ -->
-          <img src="https://www.evpl.org/wp-content/uploads/2026/02/logo-black-1.png"
-               alt="Evansville Vanderburgh Public Library"
-               class="evpl-logo"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="logo-placeholder" style="display:none;">EVPL Logo — Replace Image</div>
-        </a>
-        <nav class="h1-nav">
-          <div class="nav-item" onclick="openMega(this,'m1-col')">Collections <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item" onclick="openMega(this,'m1-svc')">Services <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item" onclick="openMega(this,'m1-prg')">Programs &amp; Events <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item" onclick="openMega(this,'m1-res')">Research <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item" onclick="openMega(this,'m1-kid')">Kids &amp; Teens <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item" onclick="openMega(this,'m1-abt')">About <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <button class="h1-search-btn" onclick="openSearch('sp1')">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            Search</button>
-        </nav>
-      </div>
-
-      <!-- SEARCH PANEL — uses YOUR searchEncore form structure -->
-      <div class="search-panel" id="sp1">
-        <form onsubmit="return searchEncore(this);" class="search-inner">
-          <input type="hidden" id="encoreBase" value="https://catalog.evpl.org/Union/Search?view=list&lookfor=">
-          <input type="text" class="search-form" placeholder="Search by keywords, title, subject, author…">
-          <div class="search-scope">
-            <label><input type="radio" name="scope1" value="catalog" checked> Catalog</label>
-            <label><input type="radio" name="scope1" value="website"> Website</label>
+    <!-- =========================
+         V1 TASK-BASED
+    ========================== -->
+    <div class="pn on" id="p-v1">
+      <div class="ds">
+        <div class="db">
+          <span class="dtag">V1</span>
+          <div>
+            <h2>Task-Based — "What do I want to do?"</h2>
+            <p>Collections · Services · Programs &amp; Events · <strong>Initiatives</strong> · Research · Kids &amp; Teens · About</p>
           </div>
-          <button type="submit" class="search-go-btn">Search</button>
-        </form>
-        <div class="search-hint">Search the catalog or EVPL website</div>
+        </div>
       </div>
 
-      <!-- MEGA: Collections -->
-      <div class="mega" id="m1-col"><div class="mega-grid">
-        <div class="mega-col"><h4>Browse</h4>
-          <a href="https://catalog.evpl.org">Explore Our Catalog</a>
-          <a href="https://catalog.evpl.org/?browseCategory=evans_read">Read</a>
-          <a href="https://catalog.evpl.org/?browseCategory=evans_watch">Watch</a>
-          <a href="https://catalog.evpl.org/?browseCategory=evans_listen">Listen</a>
-          <a href="/upcoming-releases/">Upcoming Releases</a>
+      <div class="bf">
+        <div class="bt">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="url">https://www.evpl.org</div>
         </div>
-        <div class="mega-col"><h4>Digital</h4>
-          <a href="https://libbyapp.com/library/evpl">Libby / OverDrive</a>
-          <a href="https://www.hoopladigital.com/">Hoopla</a>
-          <a href="https://evpl.kanopy.com/">Kanopy</a>
-          <a href="https://evansvillevanderburghpublic.comicsplus.app/">Comics Plus</a>
-        </div>
-        <div class="mega-col"><h4>Special Collections</h4>
-          <a href="https://digital.evpl.org">Digital Archive</a>
-          <a href="https://www.evpl.org/library-of-things/">Library of Things</a>
-          <a href="https://my.nicheacademy.com/evpl">EVPL Academy</a>
-          <a href="/initiatives/evpl-extras/">EVPL Extras!</a>
-        </div>
-        <div class="mega-col"><h4>Learn More</h4>
-          <a href="/research-home/">Online Learning &amp; Research</a>
-          <a href="https://www.evpl.org/initiatives/catalog-upgrade/">How to Use Our Catalog</a>
-          <a href="/explore/listen/check-it-out-with-evpl/">Check It Out With EVPL</a>
-        </div>
-      </div></div>
-      <!-- MEGA: Services -->
-      <div class="mega" id="m1-svc"><div class="mega-grid">
-        <div class="mega-col"><h4>Getting Started</h4>
-          <a href="https://evpl.org/services/library-card/">Library Cards</a>
-          <a href="/digital-evpl-card/">Online Card Registration</a>
-          <a href="https://www.evpl.org/mobile-apps/">EVPL Mobile App</a>
-          <a href="/services/book-a-librarian/">Book-A-Librarian</a>
-          <a href="https://evpl.org/services/evpl-to-go/">EVPL To Go</a>
-        </div>
-        <div class="mega-col"><h4>At the Library</h4>
-          <a href="https://www.evpl.org/services/technology-services/computer-internet-access/">Computers &amp; WiFi</a>
-          <a href="https://www.evpl.org/services/technology-services/print-copy-fax/">Print / Copy / Fax / Scan</a>
-          <a href="https://rooms.evpl.org/reserve">Reserve a Room</a>
-          <a href="https://evpl.org/services/passport-experience/">Passport Services</a>
-          <a href="https://www.evpl.org/services/notary-services/">Notary Services</a>
-        </div>
-        <div class="mega-col"><h4>Career &amp; Business</h4>
-          <a href="/business-central/">Business Central</a>
-          <a href="/job-seeker-tools/">Job Seeker Tools</a>
-          <a href="/business-central-smallbusiness/">Small Business Help</a>
-          <a href="/initiatives/education-evpl/">Education Central</a>
-        </div>
-        <div class="mega-col"><h4>Specialized</h4>
-          <a href="/services/evpl-maker-studio/">EVPL Maker Studio</a>
-          <a href="/services/evpl-sensory-rooms/">Sensory Rooms</a>
-          <a href="/services/talking-books-evpl/">Accessibility Resources</a>
-          <a href="https://www.evpl.org/community-resources/">Community Resources</a>
-          <a href="https://evpl.org/services/interlibrary-loan/">Interlibrary Loan</a>
-        </div>
-      </div></div>
-      <!-- MEGA: Programs -->
-      <div class="mega" id="m1-prg"><div class="mega-grid">
-        <div class="mega-col"><h4>By Age</h4>
-          <a href="https://events.evpl.org/events?v=grid&a=Children%20(0-11)">Children (0–11)</a>
-          <a href="https://events.evpl.org/events?v=grid&a=Young%20Adults%20(12-18)">Young Adults (12–18)</a>
-          <a href="https://events.evpl.org/events?v=grid&a=Adults%20(18%2B)">Adults (18+)</a>
-          <a href="https://events.evpl.org/events">All Ages</a>
-        </div>
-        <div class="mega-col"><h4>Featured</h4>
-          <a href="https://www.evpl.org/initiatives/annual-reading-program-2026/">Spark a Love of Reading</a>
-          <a href="https://www.evpl.org/initiatives/speak-2026/">SPEAK 2026</a>
-          <a href="https://libraryc.org/evpl">Virtual Author Talks</a>
-          <a href="http://bit.ly/2IZtKtQ">Beanstack</a>
-        </div>
-        <div class="mega-col"><h4>At Home</h4>
-          <a href="https://www.youtube.com/user/evplVideos/playlists">Digital Programs</a>
-          <a href="https://events.evpl.org/events?t=Books%2FLiterature%2FWriting">Virtual Book Discussions</a>
-          <a href="https://www.evpl.org/discover/inspiration/">DIY Activities</a>
-        </div>
-        <div class="mega-col"><h4>&nbsp;</h4>
-          <a href="https://events.evpl.org/events" class="mega-highlight">View Events Calendar →</a>
-        </div>
-      </div></div>
-      <!-- MEGA: Research -->
-      <div class="mega" id="m1-res"><div class="mega-grid cols-3">
-        <div class="mega-col"><h4>Online Resources</h4>
-          <a href="/research-home/">Online Learning &amp; Research</a>
-          <a href="https://www.evpl.org/explore/research/">All Databases A–Z</a>
-          <a href="/research-homework-help-test-prep/">Homework Help &amp; Test Prep</a>
-          <a href="/services/book-a-librarian/">Book-A-Librarian</a>
-        </div>
-        <div class="mega-col"><h4>Local History &amp; Genealogy</h4>
-          <a href="https://www.evpl.org/research/indiana-room/">Indiana Room</a>
-          <a href="https://www.evpl.org/research/local-history/">Local History</a>
-          <a href="https://www.evpl.org/services/technology-services/the-preservation-studio-at-evpl/">Preservation Studio</a>
-          <a href="https://digital.evpl.org">Digital Archive</a>
-        </div>
-        <div class="mega-col"><h4>By Topic</h4>
-          <a href="/business-central/">Business &amp; Career</a>
-          <a href="/initiatives/education-evpl/">Education</a>
-          <a href="https://www.evpl.org/research-government-legal/">Government &amp; Legal</a>
-          <a href="https://www.evpl.org/community-resources/">Community Resources</a>
-        </div>
-      </div></div>
-      <!-- MEGA: Kids -->
-      <div class="mega" id="m1-kid"><div class="mega-grid cols-2">
-        <div class="mega-col"><h4>Kids</h4>
-          <a href="https://www.evpl.org/initiatives/1ooo-books-before-kindergarten/">1000 Books Before Kindergarten</a>
-          <a href="https://www.evpl.org/initiatives/3oo-books-by-3rd-grade/">300 Books by 3rd Grade</a>
-          <a href="https://www.evpl.org/school-readiness/">School Readiness</a>
-          <a href="https://events.evpl.org/events?term=storytime&r=days&n=365">Storytime Programs</a>
-          <a href="https://www.evpl.org/initiatives/storytime-to-go/">Storytime To Go</a>
-          <a href="https://events.evpl.org/events?term=science&r=months&n=12">STEAM Programs</a>
-          <a href="https://www.evpl.org/students-evpl-2/">Students @ EVPL</a>
-        </div>
-        <div class="mega-col"><h4>Teens</h4>
-          <a href="https://www.evpl.org/initiatives/teens-evpl/">Teens @ EVPL</a>
-          <a href="/research-homework-help-test-prep/">Homework Help &amp; Test Prep</a>
-        </div>
-      </div></div>
-      <!-- MEGA: About -->
-      <div class="mega" id="m1-abt"><div class="mega-grid">
-        <div class="mega-col"><h4>Who We Are</h4>
-          <a href="https://www.evpl.org/connect/leadership/?branch=all&department=leadership-team">Leadership</a>
-          <a href="/connect/board/">Board of Trustees</a>
-          <a href="/connect/foundation/">EVPL Foundation</a>
-        </div>
-        <div class="mega-col"><h4>What We Do</h4>
-          <a href="https://www.evpl.org/initiatives/2024-annual-report/">Annual Report 2024</a>
-          <a href="https://www.evpl.org/initiatives/evpls-24-27-strategic-plan/">Strategic Plan 2024–2027</a>
-          <a href="/discover/evpl-news/">EVPL News</a>
-          <a href="/discover/inspiration/">EVPL's Blog</a>
-        </div>
-        <div class="mega-col"><h4>Initiatives</h4>
-          <a href="https://www.evpl.org/initiatives/evpl-arts-programming/">Arts Programming</a>
-          <a href="https://www.evpl.org/initiatives/baby-explorer-bundles/">Baby Explorer Bundles</a>
-          <a href="https://www.evpl.org/initiatives/seasons-of-sharing/">Seasons of Sharing</a>
-          <a href="https://www.evpl.org/initiatives/master-facilities-plan-project/">Master Facilities Plan</a>
-        </div>
-        <div class="mega-col"><h4>Connect</h4>
-          <a href="https://www.evpl.org/connect/contact-us/">Contact Us</a>
-          <a href="/connect/about/careers/">Careers</a>
-          <a href="https://www.evpl.org/do-business-with-evpl/">Do Business with EVPL</a>
-          <a href="/library-policies-and-procedures/">Library Policies</a>
-        </div>
-      </div></div>
-    </header>
-    <!-- Homepage content -->
-    <div class="fake-hero"><div class="fake-hero-content">
-      <h1>Spark a Love of Reading</h1>
-      <p>Join our 2026 annual reading program at any of our 8 locations.</p>
-      <button class="fake-cta">Get Started →</button>
-    </div></div>
-    <div class="fake-cards">
-      <div class="fake-card"><div class="fc-ico">📚</div><h3>Browse Collections</h3><p>Books, eBooks, audiobooks, movies, and more.</p></div>
-      <div class="fake-card"><div class="fc-ico">📅</div><h3>Upcoming Events</h3><p>Storytimes, workshops, and book clubs.</p></div>
-      <div class="fake-card"><div class="fc-ico">🔧</div><h3>Maker Studio</h3><p>3D printers, laser cutters, and more.</p></div>
-    </div>
-  </div></div>
-</div>
 
-<!-- =============================================================
-     V2 — WARM CREAM UTILITY BAR
-     ============================================================= -->
-<div class="proto" id="p-v2">
-  <div class="desc"><div class="desc-box"><span class="desc-badge">V2</span><div>
-    <h2>Warm Cream Utility Bar + White Navigation</h2>
-    <p>Brooklyn PL inspired. Light, warm top bar with pill-shaped Donate &amp; Get a Card buttons. Same restructured nav, same search bar functionality. Feels more community-oriented and less corporate.</p>
-  </div></div></div>
-  <div class="browser-wrap"><div class="browser-top"><div class="b-dots"><span></span><span></span><span></span></div><div class="b-url">https://www.evpl.org</div></div>
-  <div class="browser-body">
-    <header class="h2-wrap" id="hdr2">
-      <div class="h2-utility">
-        <div class="h2-ul">
-          <a href="https://www.evpl.org/connect/locations/">
-            <svg class="u-ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Hours &amp; Locations</a>
-          <a href="https://www.evpl.org/connect/contact-us/">
-            <svg class="u-ico" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Contact Us</a>
-        </div>
-        <div class="h2-ur">
-          <a href="https://catalog.evpl.org/MyAccount/Home">My Account</a>
-          <a href="https://www.evpl.org/connect/foundation/" class="h2-pill h2-pill-red">♥&nbsp; Donate</a>
-          <a href="https://www.evpl.org/services/library-card/" class="h2-pill h2-pill-navy">Get a Card</a>
-        </div>
-      </div>
-      <div class="h2-main">
-        <a href="https://www.evpl.org" class="evpl-logo-link">
-          <img src="https://www.evpl.org/wp-content/uploads/2026/02/logo-black-1.png"
-               alt="Evansville Vanderburgh Public Library" class="evpl-logo"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="logo-placeholder" style="display:none;">EVPL Logo — Replace Image</div>
-        </a>
-        <nav class="h2-nav">
-          <div class="nav-item" onclick="openMega(this,'m2-col')">Collections <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item" onclick="openMega(this,'m2-svc')">Services <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item" onclick="openMega(this,'m2-prg')">Programs &amp; Events <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item" onclick="openMega(this,'m2-res')">Research <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item" onclick="openMega(this,'m2-kid')">Kids &amp; Teens <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item" onclick="openMega(this,'m2-abt')">About <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <button class="h2-search-btn" onclick="openSearch('sp2')">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            Search</button>
-        </nav>
-      </div>
-      <div class="search-panel" id="sp2">
-        <form onsubmit="return searchEncore(this);" class="search-inner">
-          <input type="hidden" id="encoreBase2" value="https://catalog.evpl.org/Union/Search?view=list&lookfor=">
-          <input type="text" class="search-form" placeholder="Search by keywords, title, subject, author…">
-          <div class="search-scope">
-            <label><input type="radio" name="scope2" value="catalog" checked> Catalog</label>
-            <label><input type="radio" name="scope2" value="website"> Website</label>
+        <div class="bb">
+          <header class="h1">
+            <div class="h1u">
+              <a href="/connect/locations/">
+                <svg class="ic" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Hours &amp; Locations
+              </a>
+              <a href="https://catalog.evpl.org/MyAccount/Home">
+                <svg class="ic" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                My Account
+              </a>
+              <span class="sep"></span>
+              <a href="/services/library-card/">Get a Card</a>
+              <a href="/connect/foundation/" class="dn">♥ Donate</a>
+            </div>
+
+            <div class="h1m">
+              <a href="/" class="ll">
+                <img src="https://www.evpl.org/wp-content/uploads/2026/02/logo-black-1.png" alt="EVPL" class="limg"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="lph" style="display:none">EVPL Logo</div>
+              </a>
+
+              <nav class="h1n">
+                <div class="ni" onclick="om(this,'d1a')">Collections <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+                <div class="ni" onclick="om(this,'d1b')">Services <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+                <div class="ni" onclick="om(this,'d1c')">Programs &amp; Events <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+                <div class="ni" onclick="om(this,'d1g')">Initiatives <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+                <div class="ni" onclick="om(this,'d1d')">Research <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+                <div class="ni" onclick="om(this,'d1e')">Kids &amp; Teens <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+                <div class="ni" onclick="om(this,'d1f')">About <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+                <button class="h1sb" onclick="os('s1')">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  Search
+                </button>
+              </nav>
+            </div>
+
+            <div class="sp" id="s1">
+              <form onsubmit="return searchEncore(this);" class="sf">
+                <input type="hidden" name="encoreBase" value="https://catalog.evpl.org/Union/Search?view=list&lookfor=">
+                <input type="text" class="search-form" placeholder="Search by keywords, title, subject, author…">
+                <div class="sc">
+                  <label><input type="radio" name="s1s" checked> Catalog</label>
+                  <label><input type="radio" name="s1s"> Website</label>
+                </div>
+                <button type="submit" class="sg">Search</button>
+              </form>
+              <div class="sh">Search the EVPL catalog or website</div>
+            </div>
+
+            <!-- V1: Collections -->
+            <div class="mm" id="d1a">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Browse</h4>
+                  <a href="https://catalog.evpl.org">Explore Our Catalog<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/help">How to Use Our Catalog<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/?browseCategory=evans_read">Read<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/?browseCategory=evans_watch">Watch<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/?browseCategory=evans_listen">Listen<span class="ar">→</span></a>
+                  <a href="/upcoming-releases/">Upcoming Releases<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Digital</h4>
+                  <a href="https://libbyapp.com/library/evpl">Libby<span class="ar">→</span></a>
+                  <a href="https://www.hoopladigital.com/">Hoopla<span class="ar">→</span></a>
+                  <a href="https://evpl.kanopy.com/">Kanopy<span class="ar">→</span></a>
+                  <a href="https://evansvillevanderburghpublic.comicsplus.app/">Comics Plus<span class="ar">→</span></a>
+                  <a href="https://my.nicheacademy.com/evpl">EVPL Academy<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Special</h4>
+                  <a href="/library-of-things/">Library of Things<span class="ar">→</span></a>
+                  <a href="/special-collections/">Special Collections<span class="ar">→</span></a>
+                  <a href="https://digital.evpl.org">Digital Archive<span class="ar">→</span></a>
+                  <a href="/research-home/" class="cta">All Online Resources →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V1: Services -->
+            <div class="mm" id="d1b">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Getting Started</h4>
+                  <a href="/services/library-card/">Library Cards<span class="ar">→</span></a>
+                  <a href="/services/library-card/online-evpl-card-registration/">Online EVPL Card Registration<span class="ar">→</span></a>
+                  <a href="/services/evpl-card-text-notifications/">Card Text Notifications<span class="ar">→</span></a>
+                  <a href="/services/mobile-apps/">Mobile Apps<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Spaces &amp; Appointments</h4>
+                  <a href="https://rooms.evpl.org/reserve">Reserve a Room<span class="ar">→</span></a>
+                  <a href="/services/book-a-librarian/">Book-A-Librarian<span class="ar">→</span></a>
+                  <a href="/services/evpl-maker-studio/">Maker Studio<span class="ar">→</span></a>
+                  <a href="/services/evpl-sensory-rooms/">Sensory Rooms<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Everyday Help</h4>
+                  <a href="/services/passport-experience/">Passport Services<span class="ar">→</span></a>
+                  <a href="/services/notary-services/">Notary Services<span class="ar">→</span></a>
+                  <a href="/services/technology-services/computer-internet-access/">Computers &amp; WiFi<span class="ar">→</span></a>
+                  <a href="/services/technology-services/print-copy-fax/">Print | Copy | Fax | Scan<span class="ar">→</span></a>
+                  <a href="/explore/services/" class="cta">All Services →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V1: Programs & Events -->
+            <div class="mm" id="d1c">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>By Age</h4>
+                  <a href="https://events.evpl.org/events?v=grid&a=Children%20(0-11)">Children (0–11)<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events?v=grid&a=Young%20Adults%20(12-18)">Young Adults (12–18)<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events?v=grid&a=Adults%20(18%2B)">Adults (18+)<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events">All Events<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Featured</h4>
+                  <a href="https://libraryc.org/evpl">Virtual Author Talks<span class="ar">→</span></a>
+                  <a href="/programs/digital-programs/">Digital Programs<span class="ar">→</span></a>
+                  <a href="/programs/at-home/">At Home Activities<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4>&nbsp;</h4>
+                  <a href="https://events.evpl.org/events" class="cta">Full Events Calendar →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V1: Initiatives (THIS is the only home for initiatives + blog/news + project updates in V1) -->
+            <div class="mm" id="d1g">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Initiatives</h4>
+                  <a href="/initiatives/">All Initiatives<span class="ar">→</span></a>
+                  <a href="/initiatives/speak-2026/">SPEAK 2026<span class="ar">→</span></a>
+                  <a href="/initiatives/spark-a-love-of-reading/">Spark a Love of Reading<span class="ar">→</span></a>
+                  <a href="/initiatives/evpl-extras/">EVPL Extras!<span class="ar">→</span></a>
+                  <a href="/initiatives/seasons-of-sharing/">Seasons of Sharing<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Blog &amp; News</h4>
+                  <a href="/discover/evpl-news/">EVPL News<span class="ar">→</span></a>
+                  <a href="/discover/inspiration/">EVPL’s Blog<span class="ar">→</span></a>
+                  <a href="/initiatives/2024-annual-report/">Annual Report<span class="ar">→</span></a>
+                  <a href="/connect/about/strategic-plan/">Strategic Plan<span class="ar">→</span></a>
+                  <a href="/connect/about/master-facilities-plan/">Master Facilities Plan<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Project Updates</h4>
+                  <a href="/project-updates/">All Project Updates<span class="ar">→</span></a>
+                  <a href="/project-updates/central-renovations/">Central Renovations<span class="ar">→</span></a>
+                  <a href="/project-updates/oaklyn-renovations/">Oaklyn Renovations<span class="ar">→</span></a>
+                  <a href="/project-updates/north-park-renovation/">North Park Renovation<span class="ar">→</span></a>
+                  <a href="/project-updates/red-bank-renovations/">Red Bank Renovations<span class="ar">→</span></a>
+                  <a href="/initiatives/" class="cta">Browse Initiatives →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V1: Research -->
+            <div class="mm" id="d1d">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Online Learning</h4>
+                  <a href="/research-home/">Online Learning &amp; Research<span class="ar">→</span></a>
+                  <a href="/explore/research/">Databases A–Z<span class="ar">→</span></a>
+                  <a href="/research-homework-help-test-prep/">Homework Help &amp; Test Prep<span class="ar">→</span></a>
+                  <a href="/community-resources/">Community Resources<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Local History</h4>
+                  <a href="/research/indiana-room/">Indiana Room<span class="ar">→</span></a>
+                  <a href="https://digital.evpl.org">Digital Archive<span class="ar">→</span></a>
+                  <a href="/services/technology-services/the-preservation-studio-at-evpl/">Preservation Studio<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Get Help</h4>
+                  <a href="/services/book-a-librarian/">Book-A-Librarian<span class="ar">→</span></a>
+                  <a href="/services/technology-help/">Technology Help<span class="ar">→</span></a>
+                  <a href="/services/interlibrary-loan/">Interlibrary Loan<span class="ar">→</span></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V1: Kids & Teens -->
+            <div class="mm" id="d1e">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Kids</h4>
+                  <a href="https://events.evpl.org/events?term=storytime&r=days&n=365">Storytime Programs<span class="ar">→</span></a>
+                  <a href="/initiatives/1ooo-books-before-kindergarten/">1000 Books Before Kindergarten<span class="ar">→</span></a>
+                  <a href="/initiatives/3oo-books-by-3rd-grade/">300 Books by 3rd Grade<span class="ar">→</span></a>
+                  <a href="/school-readiness/">School Readiness<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Teens</h4>
+                  <a href="/initiatives/teens-evpl/">Teens @ EVPL<span class="ar">→</span></a>
+                  <a href="/students-evpl-2/">Students @ EVPL<span class="ar">→</span></a>
+                  <a href="/research-homework-help-test-prep/">Homework Help<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events?v=grid&a=Young%20Adults%20(12-18)">Teen Events<span class="ar">→</span></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V1: About -->
+            <div class="mm" id="d1f">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Who We Are</h4>
+                  <a href="/connect/leadership/?branch=all&department=leadership-team">Leadership<span class="ar">→</span></a>
+                  <a href="/connect/board/">Board of Trustees<span class="ar">→</span></a>
+                  <a href="/connect/foundation/">EVPL Foundation<span class="ar">→</span></a>
+                  <a href="/connect/about/careers/">Careers / Join Our Team<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Governance</h4>
+                  <a href="/governance/">Governance<span class="ar">→</span></a>
+                  <a href="/library-policies-and-procedures/">Library Policies<span class="ar">→</span></a>
+                  <a href="/public-hearing-budget-notice/">Public Hearing – Budget Notice<span class="ar">→</span></a>
+                  <a href="/public-hearing-notices/">Public Hearing Notices<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Connect</h4>
+                  <a href="/connect/contact-us/">Contact Us<span class="ar">→</span></a>
+                  <a href="/do-business-with-evpl/">Do Business with EVPL<span class="ar">→</span></a>
+                  <a href="/outreach/">Outreach<span class="ar">→</span></a>
+                  <a href="/ada-disclaimer/">Accessibility<span class="ar">→</span></a>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <div class="fh">
+            <div class="fhc">
+              <h1>Spark a Love of Reading</h1>
+              <p>Join our 2026 reading program at any of our 8 locations.</p>
+              <button class="fhb">Get Started →</button>
+            </div>
           </div>
-          <button type="submit" class="search-go-btn">Search</button>
-        </form>
-        <div class="search-hint">Search the catalog or EVPL website</div>
-      </div>
-      <!-- V2 Mega menus — same links as V1 -->
-      <div class="mega" id="m2-col"><div class="mega-grid">
-        <div class="mega-col"><h4>Browse</h4><a href="https://catalog.evpl.org">Explore Our Catalog</a><a href="https://catalog.evpl.org/?browseCategory=evans_read">Read</a><a href="https://catalog.evpl.org/?browseCategory=evans_watch">Watch</a><a href="https://catalog.evpl.org/?browseCategory=evans_listen">Listen</a><a href="/upcoming-releases/">Upcoming Releases</a></div>
-        <div class="mega-col"><h4>Digital</h4><a href="https://libbyapp.com/library/evpl">Libby / OverDrive</a><a href="https://www.hoopladigital.com/">Hoopla</a><a href="https://evpl.kanopy.com/">Kanopy</a><a href="https://evansvillevanderburghpublic.comicsplus.app/">Comics Plus</a></div>
-        <div class="mega-col"><h4>Special Collections</h4><a href="https://digital.evpl.org">Digital Archive</a><a href="https://www.evpl.org/library-of-things/">Library of Things</a><a href="https://my.nicheacademy.com/evpl">EVPL Academy</a><a href="/initiatives/evpl-extras/">EVPL Extras!</a></div>
-        <div class="mega-col"><h4>Learn More</h4><a href="/research-home/">Online Learning &amp; Research</a><a href="https://www.evpl.org/initiatives/catalog-upgrade/">How to Use Our Catalog</a></div>
-      </div></div>
-      <div class="mega" id="m2-svc"><div class="mega-grid">
-        <div class="mega-col"><h4>Getting Started</h4><a href="https://evpl.org/services/library-card/">Library Cards</a><a href="/digital-evpl-card/">Online Card Registration</a><a href="/services/book-a-librarian/">Book-A-Librarian</a><a href="https://evpl.org/services/evpl-to-go/">EVPL To Go</a></div>
-        <div class="mega-col"><h4>At the Library</h4><a href="https://www.evpl.org/services/technology-services/computer-internet-access/">Computers &amp; WiFi</a><a href="https://www.evpl.org/services/technology-services/print-copy-fax/">Print / Copy / Fax / Scan</a><a href="https://rooms.evpl.org/reserve">Reserve a Room</a><a href="https://evpl.org/services/passport-experience/">Passport Services</a><a href="https://www.evpl.org/services/notary-services/">Notary Services</a></div>
-        <div class="mega-col"><h4>Career &amp; Business</h4><a href="/business-central/">Business Central</a><a href="/job-seeker-tools/">Job Seeker Tools</a><a href="/business-central-smallbusiness/">Small Business Help</a><a href="/initiatives/education-evpl/">Education Central</a></div>
-        <div class="mega-col"><h4>Specialized</h4><a href="/services/evpl-maker-studio/">EVPL Maker Studio</a><a href="/services/evpl-sensory-rooms/">Sensory Rooms</a><a href="/services/talking-books-evpl/">Accessibility Resources</a><a href="https://www.evpl.org/community-resources/">Community Resources</a><a href="https://evpl.org/services/interlibrary-loan/">Interlibrary Loan</a></div>
-      </div></div>
-      <div class="mega" id="m2-prg"><div class="mega-grid">
-        <div class="mega-col"><h4>By Age</h4><a href="https://events.evpl.org/events?v=grid&a=Children%20(0-11)">Children (0–11)</a><a href="https://events.evpl.org/events?v=grid&a=Young%20Adults%20(12-18)">Young Adults (12–18)</a><a href="https://events.evpl.org/events?v=grid&a=Adults%20(18%2B)">Adults (18+)</a><a href="https://events.evpl.org/events">All Ages</a></div>
-        <div class="mega-col"><h4>Featured</h4><a href="https://www.evpl.org/initiatives/annual-reading-program-2026/">Spark a Love of Reading</a><a href="https://www.evpl.org/initiatives/speak-2026/">SPEAK 2026</a><a href="https://libraryc.org/evpl">Virtual Author Talks</a></div>
-        <div class="mega-col"><h4>At Home</h4><a href="https://www.youtube.com/user/evplVideos/playlists">Digital Programs</a><a href="https://events.evpl.org/events?t=Books%2FLiterature%2FWriting">Virtual Book Discussions</a><a href="https://www.evpl.org/discover/inspiration/">DIY Activities</a></div>
-        <div class="mega-col"><h4>&nbsp;</h4><a href="https://events.evpl.org/events" class="mega-highlight">View Events Calendar →</a></div>
-      </div></div>
-      <div class="mega" id="m2-res"><div class="mega-grid cols-3">
-        <div class="mega-col"><h4>Online Resources</h4><a href="/research-home/">Online Learning &amp; Research</a><a href="https://www.evpl.org/explore/research/">All Databases A–Z</a><a href="/research-homework-help-test-prep/">Homework Help &amp; Test Prep</a><a href="/services/book-a-librarian/">Book-A-Librarian</a></div>
-        <div class="mega-col"><h4>Local History &amp; Genealogy</h4><a href="https://www.evpl.org/research/indiana-room/">Indiana Room</a><a href="https://www.evpl.org/research/local-history/">Local History</a><a href="https://www.evpl.org/services/technology-services/the-preservation-studio-at-evpl/">Preservation Studio</a><a href="https://digital.evpl.org">Digital Archive</a></div>
-        <div class="mega-col"><h4>By Topic</h4><a href="/business-central/">Business &amp; Career</a><a href="/initiatives/education-evpl/">Education</a><a href="https://www.evpl.org/research-government-legal/">Government &amp; Legal</a><a href="https://www.evpl.org/community-resources/">Community Resources</a></div>
-      </div></div>
-      <div class="mega" id="m2-kid"><div class="mega-grid cols-2">
-        <div class="mega-col"><h4>Kids</h4><a href="https://www.evpl.org/initiatives/1ooo-books-before-kindergarten/">1000 Books Before Kindergarten</a><a href="https://www.evpl.org/initiatives/3oo-books-by-3rd-grade/">300 Books by 3rd Grade</a><a href="https://www.evpl.org/school-readiness/">School Readiness</a><a href="https://events.evpl.org/events?term=storytime&r=days&n=365">Storytime Programs</a><a href="https://www.evpl.org/initiatives/storytime-to-go/">Storytime To Go</a><a href="https://events.evpl.org/events?term=science&r=months&n=12">STEAM Programs</a></div>
-        <div class="mega-col"><h4>Teens</h4><a href="https://www.evpl.org/initiatives/teens-evpl/">Teens @ EVPL</a><a href="/research-homework-help-test-prep/">Homework Help &amp; Test Prep</a></div>
-      </div></div>
-      <div class="mega" id="m2-abt"><div class="mega-grid">
-        <div class="mega-col"><h4>Who We Are</h4><a href="https://www.evpl.org/connect/leadership/?branch=all&department=leadership-team">Leadership</a><a href="/connect/board/">Board of Trustees</a><a href="/connect/foundation/">EVPL Foundation</a></div>
-        <div class="mega-col"><h4>What We Do</h4><a href="https://www.evpl.org/initiatives/2024-annual-report/">Annual Report 2024</a><a href="https://www.evpl.org/initiatives/evpls-24-27-strategic-plan/">Strategic Plan</a><a href="/discover/evpl-news/">EVPL News</a><a href="/discover/inspiration/">EVPL's Blog</a></div>
-        <div class="mega-col"><h4>Initiatives</h4><a href="https://www.evpl.org/initiatives/evpl-arts-programming/">Arts Programming</a><a href="https://www.evpl.org/initiatives/baby-explorer-bundles/">Baby Explorer Bundles</a><a href="https://www.evpl.org/initiatives/seasons-of-sharing/">Seasons of Sharing</a></div>
-        <div class="mega-col"><h4>Connect</h4><a href="https://www.evpl.org/connect/contact-us/">Contact Us</a><a href="/connect/about/careers/">Careers</a><a href="https://www.evpl.org/do-business-with-evpl/">Do Business with EVPL</a><a href="/library-policies-and-procedures/">Library Policies</a></div>
-      </div></div>
-    </header>
-    <div class="fake-hero"><div class="fake-hero-content"><h1>Spark a Love of Reading</h1><p>Join our 2026 annual reading program at any of our 8 locations.</p><button class="fake-cta">Get Started →</button></div></div>
-    <div class="fake-cards">
-      <div class="fake-card"><div class="fc-ico">📚</div><h3>Browse Collections</h3><p>Books, eBooks, audiobooks, movies, and more.</p></div>
-      <div class="fake-card"><div class="fc-ico">📅</div><h3>Upcoming Events</h3><p>Storytimes, workshops, and book clubs.</p></div>
-      <div class="fake-card"><div class="fc-ico">🔧</div><h3>Maker Studio</h3><p>3D printers, laser cutters, and more.</p></div>
-    </div>
-  </div></div>
-</div>
 
-<!-- =============================================================
-     V3 — SEARCH ALWAYS VISIBLE
-     ============================================================= -->
-<div class="proto" id="p-v3">
-  <div class="desc"><div class="desc-box"><span class="desc-badge">V3</span><div>
-    <h2>Always-Visible Search in Top Bar</h2>
-    <p>Clifton Park inspired. Logo + search bar (Catalog/Website toggle) + utility links all in the navy bar. Clean nav strip below. No extra click to search — ideal for catalog-first visitors.</p>
-  </div></div></div>
-  <div class="browser-wrap"><div class="browser-top"><div class="b-dots"><span></span><span></span><span></span></div><div class="b-url">https://www.evpl.org</div></div>
-  <div class="browser-body">
-    <header class="h3-wrap" id="hdr3">
-      <div class="h3-top">
-        <a href="https://www.evpl.org" class="evpl-logo-link">
-          <img src="https://www.evpl.org/wp-content/uploads/2025/07/logo-formal-light-grey.png"
-               alt="EVPL" class="evpl-logo" style="height:40px;"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="logo-placeholder" style="display:none;border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.05);">EVPL Logo</div>
-        </a>
-        <form onsubmit="return searchEncore(this);" class="h3-search-bar">
-          <input type="hidden" id="encoreBase3" value="https://catalog.evpl.org/Union/Search?view=list&lookfor=">
-          <input type="text" class="search-form" placeholder="Search by keywords, title, subject, author…">
-          <div class="h3-scope">
-            <label><input type="radio" name="scope3" value="catalog" checked> Catalog</label>
-            <label><input type="radio" name="scope3" value="website"> Website</label>
+          <div class="fcr">
+            <div class="fcd"><div class="em">📚</div><h3>Browse Collections</h3><p>Books, eBooks, audiobooks &amp; more.</p></div>
+            <div class="fcd"><div class="em">📅</div><h3>Upcoming Events</h3><p>Storytimes, workshops &amp; clubs.</p></div>
+            <div class="fcd"><div class="em">🔧</div><h3>Maker Studio</h3><p>3D printers, laser cutters &amp; more.</p></div>
           </div>
-          <button type="submit" class="h3-go">Go</button>
-        </form>
-        <div class="h3-actions">
-          <a href="https://www.evpl.org/connect/locations/">
-            <svg class="u-ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Locations</a>
-          <a href="https://catalog.evpl.org/MyAccount/Home">
-            <svg class="u-ico" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            My Account</a>
-          <a href="https://www.evpl.org/services/library-card/">Get a Card</a>
-          <a href="https://www.evpl.org/connect/foundation/" class="h3-donate">♥&nbsp; Donate</a>
+
+          <!-- V1 FOOTER (task-based structure) -->
+          <footer class="ft ftv1">
+            <div class="ft-top">
+              <div>
+                <h3>Stay connected with EVPL</h3>
+                <p>Library news, events, and updates delivered to your inbox.</p>
+              </div>
+              <div class="ft-form">
+                <input type="email" placeholder="Enter your email">
+                <button>Subscribe</button>
+              </div>
+            </div>
+
+            <div class="ft-grid cols-5">
+              <div class="ft-col ft-brand">
+                <img src="https://www.evpl.org/wp-content/uploads/2025/07/logo-formal-light-grey.png" alt="EVPL" class="ft-logo"
+                     onerror="this.style.display='none'">
+                <div class="ft-addr">
+                  200 SE Martin Luther King Jr. Blvd<br>
+                  Evansville, Indiana 47713<br>
+                  812.428.8200
+                </div>
+                <div class="ft-soc">
+                  <a href="#" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
+                  <a href="#" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+                  <a href="#" aria-label="X"><svg><use href="#i-tw"/></svg></a>
+                  <a href="#" aria-label="YouTube"><svg><use href="#i-yt"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg><use href="#i-li"/></svg></a>
+                </div>
+              </div>
+
+              <div class="ft-col">
+                <h4>Get Started</h4>
+                <a href="/services/library-card/">Get a Library Card</a>
+                <a href="/services/library-card/online-evpl-card-registration/">Online Registration</a>
+                <a href="/services/mobile-apps/">Mobile Apps</a>
+                <a href="https://catalog.evpl.org/MyAccount/Home">My Account</a>
+              </div>
+
+              <div class="ft-col">
+                <h4>Borrow</h4>
+                <a href="https://catalog.evpl.org">Catalog</a>
+                <a href="https://libbyapp.com/library/evpl">Libby</a>
+                <a href="https://www.hoopladigital.com/">Hoopla</a>
+                <a href="/library-of-things/">Library of Things</a>
+              </div>
+
+              <div class="ft-col">
+                <h4>Attend</h4>
+                <a href="https://events.evpl.org/events">Events Calendar</a>
+                <a href="https://rooms.evpl.org/reserve">Reserve a Room</a>
+                <a href="/services/evpl-maker-studio/">Maker Studio</a>
+                <a href="https://libraryc.org/evpl">Virtual Author Talks</a>
+              </div>
+
+              <div class="ft-col">
+                <h4>Help &amp; About</h4>
+                <a href="/services/book-a-librarian/">Book-A-Librarian</a>
+                <a href="/connect/contact-us/">Contact Us</a>
+                <a href="/library-policies-and-procedures/">Library Policies</a>
+                <a href="/connect/about/careers/">Careers</a>
+              </div>
+            </div>
+
+            <div class="ft-bot">
+              <span class="copy">© 2026 Evansville Vanderburgh Public Library</span>
+              <nav>
+                <a href="/connect/locations/">Hours &amp; Locations</a>
+                <a href="/ada-disclaimer/">Accessibility</a>
+                <a href="/terms-and-conditions/">Terms</a>
+                <a href="/connect/foundation/">Donate</a>
+              </nav>
+            </div>
+          </footer>
+
         </div>
       </div>
-      <nav class="h3-nav">
-        <div class="nav-item" onclick="openMega(this,'m3-col')">Collections <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-        <div class="nav-item" onclick="openMega(this,'m3-svc')">Services <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-        <div class="nav-item" onclick="openMega(this,'m3-prg')">Programs &amp; Events <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-        <div class="nav-item" onclick="openMega(this,'m3-res')">Research <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-        <div class="nav-item" onclick="openMega(this,'m3-kid')">Kids &amp; Teens <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-        <div class="nav-item" onclick="openMega(this,'m3-abt')">About <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-      </nav>
-      <!-- V3 uses same mega menu structure — abbreviated for brevity -->
-      <div class="mega" id="m3-col"><div class="mega-grid">
-        <div class="mega-col"><h4>Browse</h4><a href="https://catalog.evpl.org">Explore Our Catalog</a><a href="https://catalog.evpl.org/?browseCategory=evans_read">Read</a><a href="https://catalog.evpl.org/?browseCategory=evans_watch">Watch</a><a href="https://catalog.evpl.org/?browseCategory=evans_listen">Listen</a></div>
-        <div class="mega-col"><h4>Digital</h4><a href="https://libbyapp.com/library/evpl">Libby / OverDrive</a><a href="https://www.hoopladigital.com/">Hoopla</a><a href="https://evpl.kanopy.com/">Kanopy</a><a href="https://evansvillevanderburghpublic.comicsplus.app/">Comics Plus</a></div>
-        <div class="mega-col"><h4>Special</h4><a href="https://digital.evpl.org">Digital Archive</a><a href="https://www.evpl.org/library-of-things/">Library of Things</a><a href="https://my.nicheacademy.com/evpl">EVPL Academy</a></div>
-        <div class="mega-col"><h4>Learn More</h4><a href="/research-home/">Online Learning &amp; Research</a><a href="https://www.evpl.org/initiatives/catalog-upgrade/">How to Use Our Catalog</a></div>
-      </div></div>
-      <div class="mega" id="m3-svc"><div class="mega-grid">
-        <div class="mega-col"><h4>Getting Started</h4><a href="https://evpl.org/services/library-card/">Library Cards</a><a href="/services/book-a-librarian/">Book-A-Librarian</a><a href="https://evpl.org/services/evpl-to-go/">EVPL To Go</a></div>
-        <div class="mega-col"><h4>At the Library</h4><a href="https://www.evpl.org/services/technology-services/computer-internet-access/">Computers &amp; WiFi</a><a href="https://www.evpl.org/services/technology-services/print-copy-fax/">Print / Copy / Fax / Scan</a><a href="https://rooms.evpl.org/reserve">Reserve a Room</a><a href="https://evpl.org/services/passport-experience/">Passport Services</a></div>
-        <div class="mega-col"><h4>Career &amp; Business</h4><a href="/business-central/">Business Central</a><a href="/job-seeker-tools/">Job Seeker Tools</a><a href="/initiatives/education-evpl/">Education Central</a></div>
-        <div class="mega-col"><h4>Specialized</h4><a href="/services/evpl-maker-studio/">Maker Studio</a><a href="/services/evpl-sensory-rooms/">Sensory Rooms</a><a href="https://www.evpl.org/community-resources/">Community Resources</a></div>
-      </div></div>
-      <div class="mega" id="m3-prg"><div class="mega-grid">
-        <div class="mega-col"><h4>By Age</h4><a href="https://events.evpl.org/events?v=grid&a=Children%20(0-11)">Children (0–11)</a><a href="https://events.evpl.org/events?v=grid&a=Young%20Adults%20(12-18)">Young Adults (12–18)</a><a href="https://events.evpl.org/events?v=grid&a=Adults%20(18%2B)">Adults (18+)</a></div>
-        <div class="mega-col"><h4>Featured</h4><a href="https://www.evpl.org/initiatives/annual-reading-program-2026/">Spark a Love of Reading</a><a href="https://www.evpl.org/initiatives/speak-2026/">SPEAK 2026</a></div>
-        <div class="mega-col"><h4>At Home</h4><a href="https://www.youtube.com/user/evplVideos/playlists">Digital Programs</a><a href="https://www.evpl.org/discover/inspiration/">DIY Activities</a></div>
-        <div class="mega-col"><h4>&nbsp;</h4><a href="https://events.evpl.org/events" class="mega-highlight">View Events Calendar →</a></div>
-      </div></div>
-      <div class="mega" id="m3-res"><div class="mega-grid cols-3">
-        <div class="mega-col"><h4>Online Resources</h4><a href="/research-home/">Online Learning &amp; Research</a><a href="https://www.evpl.org/explore/research/">All Databases A–Z</a><a href="/research-homework-help-test-prep/">Homework Help &amp; Test Prep</a><a href="/services/book-a-librarian/">Book-A-Librarian</a></div>
-        <div class="mega-col"><h4>Local History &amp; Genealogy</h4><a href="https://www.evpl.org/research/indiana-room/">Indiana Room</a><a href="https://www.evpl.org/research/local-history/">Local History</a><a href="https://www.evpl.org/services/technology-services/the-preservation-studio-at-evpl/">Preservation Studio</a><a href="https://digital.evpl.org">Digital Archive</a></div>
-        <div class="mega-col"><h4>By Topic</h4><a href="/business-central/">Business &amp; Career</a><a href="/initiatives/education-evpl/">Education</a><a href="https://www.evpl.org/research-government-legal/">Government &amp; Legal</a><a href="https://www.evpl.org/community-resources/">Community Resources</a></div>
-      </div></div>
-      <div class="mega" id="m3-kid"><div class="mega-grid cols-2">
-        <div class="mega-col"><h4>Kids</h4><a href="https://www.evpl.org/initiatives/1ooo-books-before-kindergarten/">1000 Books Before Kindergarten</a><a href="https://www.evpl.org/initiatives/3oo-books-by-3rd-grade/">300 Books by 3rd Grade</a><a href="https://events.evpl.org/events?term=storytime&r=days&n=365">Storytime Programs</a><a href="https://events.evpl.org/events?term=science&r=months&n=12">STEAM Programs</a></div>
-        <div class="mega-col"><h4>Teens</h4><a href="https://www.evpl.org/initiatives/teens-evpl/">Teens @ EVPL</a><a href="/research-homework-help-test-prep/">Homework Help &amp; Test Prep</a></div>
-      </div></div>
-      <div class="mega" id="m3-abt"><div class="mega-grid">
-        <div class="mega-col"><h4>Who We Are</h4><a href="https://www.evpl.org/connect/leadership/?branch=all&department=leadership-team">Leadership</a><a href="/connect/board/">Board of Trustees</a><a href="/connect/foundation/">EVPL Foundation</a></div>
-        <div class="mega-col"><h4>What We Do</h4><a href="https://www.evpl.org/initiatives/2024-annual-report/">Annual Report 2024</a><a href="/discover/evpl-news/">EVPL News</a><a href="/discover/inspiration/">Blog</a></div>
-        <div class="mega-col"><h4>Initiatives</h4><a href="https://www.evpl.org/initiatives/evpl-arts-programming/">Arts Programming</a><a href="https://www.evpl.org/initiatives/master-facilities-plan-project/">Master Facilities Plan</a></div>
-        <div class="mega-col"><h4>Connect</h4><a href="https://www.evpl.org/connect/contact-us/">Contact Us</a><a href="/connect/about/careers/">Careers</a><a href="/library-policies-and-procedures/">Library Policies</a></div>
-      </div></div>
-    </header>
-    <div class="fake-hero"><div class="fake-hero-content"><h1>Spark a Love of Reading</h1><p>Join our 2026 annual reading program at any of our 8 locations.</p><button class="fake-cta">Get Started →</button></div></div>
-    <div class="fake-cards">
-      <div class="fake-card"><div class="fc-ico">📚</div><h3>Browse Collections</h3><p>Books, eBooks, audiobooks, movies, and more.</p></div>
-      <div class="fake-card"><div class="fc-ico">📅</div><h3>Upcoming Events</h3><p>Storytimes, workshops, and book clubs.</p></div>
-      <div class="fake-card"><div class="fc-ico">🔧</div><h3>Maker Studio</h3><p>3D printers, laser cutters, and more.</p></div>
     </div>
-  </div></div>
-</div>
 
-<!-- =============================================================
-     COMPARE
-     ============================================================= -->
-<div class="proto" id="p-cmp">
-  <div class="cmp-section" style="margin-top:20px;">
-    <h2>Feature Comparison</h2>
-    <table class="cmp-table">
-      <thead><tr><th style="width:150px">Feature</th><th>V1: Dark Top Bar</th><th>V2: Warm Cream Bar</th><th>V3: Search Always On</th></tr></thead>
-      <tbody>
-        <tr><td class="feat">Top Row</td><td>Dark navy — high contrast</td><td>Warm cream — friendly</td><td>Dark navy with embedded search</td></tr>
-        <tr><td class="feat">Search Bar</td><td>Click "Search" → overlay panel with Catalog/Website toggle</td><td>Same overlay approach</td><td>Always visible in top bar — no click needed</td></tr>
-        <tr><td class="feat">Donate</td><td>Red button in dark bar (max visibility)</td><td>Red pill in cream bar</td><td>Red button in dark bar</td></tr>
-        <tr><td class="feat">Logo</td><td>Placeholder for your image — dark background logo needed</td><td>Placeholder for your image — standard logo</td><td>Light/white logo version for navy background</td></tr>
-        <tr><td class="feat">Nav Labels</td><td colspan="3" style="text-align:center">Collections · Services · Programs &amp; Events · Research · Kids &amp; Teens · About</td></tr>
-        <tr><td class="feat">Best For</td><td>Established, professional</td><td>Community-first, warm</td><td>Catalog-focused users</td></tr>
-      </tbody>
-    </table>
+    <!-- =========================
+         V2 AUDIENCE-BASED
+    ========================== -->
+    <div class="pn" id="p-v2">
+      <div class="ds">
+        <div class="db">
+          <span class="dtag">V2</span>
+          <div>
+            <h2>Audience-Based + “What’s Happening”</h2>
+            <p>Browse &amp; Borrow · Services &amp; Spaces · <strong>What’s Happening</strong> · Kids · Teens · Support EVPL</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bf">
+        <div class="bt">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="url">https://www.evpl.org</div>
+        </div>
+
+        <div class="bb">
+          <header class="h2">
+            <div class="h2u">
+              <div class="h2l">
+                <a href="/connect/locations/">
+                  <svg class="ic" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Hours &amp; Locations
+                </a>
+                <a href="/connect/contact-us/">
+                  <svg class="ic" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  Contact
+                </a>
+              </div>
+              <div class="h2r">
+                <a href="https://catalog.evpl.org/MyAccount/Home">My Account</a>
+                <a href="/connect/foundation/" class="pl pl-r">♥ Donate</a>
+                <a href="/services/library-card/" class="pl pl-g">Get a Card</a>
+              </div>
+            </div>
+
+            <div class="h2m">
+              <a href="/" class="ll">
+                <img src="https://www.evpl.org/wp-content/uploads/2026/02/logo-black-1.png" alt="EVPL" class="limg"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="lph" style="display:none">EVPL Logo</div>
+              </a>
+
+              <nav class="h2n">
+                <div class="ni" onclick="om(this,'d2a')">Browse &amp; Borrow <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+                <div class="ni" onclick="om(this,'d2b')">Services &amp; Spaces <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+                <div class="ni" onclick="om(this,'d2c')">What’s Happening <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+                <div class="ni" onclick="om(this,'d2d')">Kids <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+                <div class="ni" onclick="om(this,'d2e')">Teens <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+                <div class="ni" onclick="om(this,'d2f')">Support EVPL <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+                <button class="h2sb" onclick="os('s2')">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  Search
+                </button>
+              </nav>
+            </div>
+
+            <div class="sp" id="s2">
+              <form onsubmit="return searchEncore(this);" class="sf">
+                <input type="hidden" name="encoreBase" value="https://catalog.evpl.org/Union/Search?view=list&lookfor=">
+                <input type="text" class="search-form" placeholder="Search by keywords, title, subject, author…">
+                <div class="sc">
+                  <label><input type="radio" name="s2s" checked> Catalog</label>
+                  <label><input type="radio" name="s2s"> Website</label>
+                </div>
+                <button type="submit" class="sg">Search</button>
+              </form>
+              <div class="sh">Search the EVPL catalog or website</div>
+            </div>
+
+            <!-- V2: Browse & Borrow (borrowing-focused only) -->
+            <div class="mm" id="d2a">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Catalog</h4>
+                  <a href="https://catalog.evpl.org">Explore Our Catalog<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/help">How to Use Our Catalog<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/?browseCategory=evans_read">Books<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/?browseCategory=evans_watch">Movies &amp; TV<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/?browseCategory=evans_listen">Music &amp; Audio<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Digital</h4>
+                  <a href="https://libbyapp.com/library/evpl">Libby<span class="ar">→</span></a>
+                  <a href="https://www.hoopladigital.com/">Hoopla<span class="ar">→</span></a>
+                  <a href="https://evpl.kanopy.com/">Kanopy<span class="ar">→</span></a>
+                  <a href="https://evansvillevanderburghpublic.comicsplus.app/">Comics Plus<span class="ar">→</span></a>
+                  <a href="https://my.nicheacademy.com/evpl">EVPL Academy<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Discover</h4>
+                  <a href="/library-of-things/">Library of Things<span class="ar">→</span></a>
+                  <a href="/upcoming-releases/">Upcoming Releases<span class="ar">→</span></a>
+                  <a href="/special-collections/">Special Collections<span class="ar">→</span></a>
+                  <a href="/research-home/" class="cta">All Online Resources →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V2: Services & Spaces (maker studio lives here) -->
+            <div class="mm" id="d2b">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Popular Services</h4>
+                  <a href="/services/library-card/">Library Cards<span class="ar">→</span></a>
+                  <a href="/services/passport-experience/">Passport Services<span class="ar">→</span></a>
+                  <a href="/services/notary-services/">Notary<span class="ar">→</span></a>
+                  <a href="/services/technology-services/print-copy-fax/">Print / Copy / Scan<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Spaces</h4>
+                  <a href="https://rooms.evpl.org/reserve">Reserve a Room<span class="ar">→</span></a>
+                  <a href="/services/evpl-maker-studio/">Maker Studio<span class="ar">→</span></a>
+                  <a href="/services/evpl-sensory-rooms/">Sensory Rooms<span class="ar">→</span></a>
+                  <a href="/services/technology-services/computer-internet-access/">Computers &amp; WiFi<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Help</h4>
+                  <a href="/services/book-a-librarian/">Book-A-Librarian<span class="ar">→</span></a>
+                  <a href="/services/technology-help/">Technology Help<span class="ar">→</span></a>
+                  <a href="/community-resources/">Community Resources<span class="ar">→</span></a>
+                  <a href="/explore/services/" class="cta">All Services →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V2: What’s Happening (the only home for initiatives + blog/news + project updates in V2 header) -->
+            <div class="mm" id="d2c">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Initiatives</h4>
+                  <a href="/initiatives/">All Initiatives<span class="ar">→</span></a>
+                  <a href="/initiatives/speak-2026/">SPEAK 2026<span class="ar">→</span></a>
+                  <a href="/initiatives/spark-a-love-of-reading/">Spark a Love of Reading<span class="ar">→</span></a>
+                  <a href="/initiatives/evpl-extras/">EVPL Extras!<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Blog &amp; News</h4>
+                  <a href="/discover/inspiration/">EVPL’s Blog<span class="ar">→</span></a>
+                  <a href="/discover/evpl-news/">EVPL News<span class="ar">→</span></a>
+                  <a href="/initiatives/2024-annual-report/">Annual Report<span class="ar">→</span></a>
+                  <a href="/connect/about/strategic-plan/">Strategic Plan<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Project Updates</h4>
+                  <a href="/project-updates/">All Project Updates<span class="ar">→</span></a>
+                  <a href="/project-updates/central-renovations/">Central Renovations<span class="ar">→</span></a>
+                  <a href="/project-updates/oaklyn-renovations/">Oaklyn Renovations<span class="ar">→</span></a>
+                  <a href="/project-updates/red-bank-renovations/">Red Bank Renovations<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events" class="cta">Events Calendar →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V2: Kids -->
+            <div class="mm" id="d2d">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Programs</h4>
+                  <a href="https://events.evpl.org/events?term=storytime&r=days&n=365">Storytime Programs<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events?term=science&r=months&n=12">STEAM Programs<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events?v=grid&a=Children%20(0-11)">All Kids Events<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Reading</h4>
+                  <a href="/initiatives/1ooo-books-before-kindergarten/">1000 Books Before K<span class="ar">→</span></a>
+                  <a href="/initiatives/3oo-books-by-3rd-grade/">300 Books by 3rd Grade<span class="ar">→</span></a>
+                  <a href="/school-readiness/">School Readiness<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Resources</h4>
+                  <a href="/students-evpl-2/">Students @ EVPL<span class="ar">→</span></a>
+                  <a href="/research-homework-help-test-prep/">Homework Help<span class="ar">→</span></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V2: Teens -->
+            <div class="mm" id="d2e">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>For Teens</h4>
+                  <a href="/initiatives/teens-evpl/">Teens @ EVPL<span class="ar">→</span></a>
+                  <a href="/students-evpl-2/">Students @ EVPL<span class="ar">→</span></a>
+                  <a href="/research-homework-help-test-prep/">Homework Help<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events?v=grid&a=Young%20Adults%20(12-18)">Teen Events<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Get Involved</h4>
+                  <a href="/volunteer/">Volunteer<span class="ar">→</span></a>
+                  <a href="/outreach/">Outreach<span class="ar">→</span></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V2: Support EVPL -->
+            <div class="mm" id="d2f">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Give</h4>
+                  <a href="/connect/foundation/">EVPL Foundation<span class="ar">→</span></a>
+                  <a href="/connect/foundation/" class="cta">Donate Now →</a>
+                  <a href="/do-business-with-evpl/">Do Business with EVPL<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>About &amp; Policies</h4>
+                  <a href="/connect/leadership/?branch=all&department=leadership-team">Leadership<span class="ar">→</span></a>
+                  <a href="/connect/board/">Board of Trustees<span class="ar">→</span></a>
+                  <a href="/library-policies-and-procedures/">Library Policies<span class="ar">→</span></a>
+                  <a href="/connect/about/careers/">Careers<span class="ar">→</span></a>
+                </div>
+              </div>
+            </div>
+
+          </header>
+
+          <div class="fh">
+            <div class="fhc">
+              <h1>What’s Happening at EVPL</h1>
+              <p>Initiatives, events, and updates — all in one place.</p>
+              <button class="fhb">Browse Updates →</button>
+            </div>
+          </div>
+
+          <div class="fcr">
+            <div class="fcd"><div class="em">👨‍👩‍👧‍👦</div><h3>Kids</h3><p>Storytimes, early learning, and school support.</p></div>
+            <div class="fcd"><div class="em">🧑‍🎓</div><h3>Teens</h3><p>Events, homework help, and student resources.</p></div>
+            <div class="fcd"><div class="em">🔧</div><h3>Maker Studio</h3><p>Create, learn, and build with EVPL.</p></div>
+          </div>
+
+          <!-- V2 FOOTER (audience-based structure) -->
+          <footer class="ft ftv2">
+            <div class="ft-top">
+              <div>
+                <h3>Get EVPL updates</h3>
+                <p>News, blog posts, initiatives, and events — straight to your inbox.</p>
+              </div>
+              <div class="ft-form">
+                <input type="email" placeholder="Email address">
+                <button>Sign Up</button>
+              </div>
+            </div>
+
+            <div class="ft-grid cols-4">
+              <div class="ft-col ft-brand">
+                <img src="https://www.evpl.org/wp-content/uploads/2026/02/logo-black-1.png" alt="EVPL" class="ft-logo"
+                     onerror="this.style.display='none'">
+                <div class="ft-addr">
+                  200 SE Martin Luther King Jr. Blvd<br>
+                  Evansville, Indiana 47713<br>
+                  812.428.8200
+                </div>
+                <div class="ft-soc">
+                  <a href="#" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
+                  <a href="#" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+                  <a href="#" aria-label="X"><svg><use href="#i-tw"/></svg></a>
+                  <a href="#" aria-label="YouTube"><svg><use href="#i-yt"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg><use href="#i-li"/></svg></a>
+                </div>
+              </div>
+
+              <div class="ft-col">
+                <h4>Kids</h4>
+                <a href="https://events.evpl.org/events?v=grid&a=Children%20(0-11)">Kids Events</a>
+                <a href="https://events.evpl.org/events?term=storytime&r=days&n=365">Storytimes</a>
+                <a href="/initiatives/1ooo-books-before-kindergarten/">1000 Books Before K</a>
+                <a href="/school-readiness/">School Readiness</a>
+              </div>
+
+              <div class="ft-col">
+                <h4>Teens</h4>
+                <a href="https://events.evpl.org/events?v=grid&a=Young%20Adults%20(12-18)">Teen Events</a>
+                <a href="/students-evpl-2/">Students @ EVPL</a>
+                <a href="/research-homework-help-test-prep/">Homework Help</a>
+                <a href="/initiatives/teens-evpl/">Teens @ EVPL</a>
+              </div>
+
+              <div class="ft-col">
+                <h4>Adults &amp; Community</h4>
+                <a href="/services/evpl-maker-studio/">Maker Studio</a>
+                <a href="/community-resources/">Community Resources</a>
+                <a href="/services/book-a-librarian/">Book-A-Librarian</a>
+                <a href="/connect/foundation/">Support / Donate</a>
+              </div>
+            </div>
+
+            <div class="ft-bot">
+              <span class="copy">© 2026 Evansville Vanderburgh Public Library</span>
+              <nav>
+                <a href="/connect/locations/">Hours &amp; Locations</a>
+                <a href="/connect/contact-us/">Contact</a>
+                <a href="/library-policies-and-procedures/">Policies</a>
+                <a href="/ada-disclaimer/">Accessibility</a>
+              </nav>
+            </div>
+          </footer>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================
+         V3 SIMPLIFIED
+    ========================== -->
+    <div class="pn" id="p-v3">
+      <div class="ds">
+        <div class="db">
+          <span class="dtag">V3</span>
+          <div>
+            <h2>Simplified — 5 Items + “What’s New”</h2>
+            <p>Books &amp; Media · Services &amp; Spaces · Events · <strong>What’s New</strong> · About</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bf">
+        <div class="bt">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="url">https://www.evpl.org</div>
+        </div>
+
+        <div class="bb">
+          <header class="h3">
+            <div class="h3t">
+              <a href="/" class="ll">
+                <img src="https://www.evpl.org/wp-content/uploads/2025/07/logo-formal-light-grey.png" alt="EVPL" class="limg" style="height:38px;"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="lph inv" style="display:none">EVPL Logo</div>
+              </a>
+
+              <form onsubmit="return searchEncore(this);" class="h3bar">
+                <input type="hidden" name="encoreBase" value="https://catalog.evpl.org/Union/Search?view=list&lookfor=">
+                <input type="text" class="search-form" placeholder="Search by keywords, title, subject, author…">
+                <div class="h3sc">
+                  <label><input type="radio" name="s3s" checked> Catalog</label>
+                  <label><input type="radio" name="s3s"> Website</label>
+                </div>
+                <button type="submit" class="h3go">Search</button>
+              </form>
+
+              <div class="h3act">
+                <a href="/connect/locations/">
+                  <svg class="ic" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Locations
+                </a>
+                <a href="https://catalog.evpl.org/MyAccount/Home">
+                  <svg class="ic" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  My Account
+                </a>
+                <a href="/services/library-card/">Get a Card</a>
+                <a href="/connect/foundation/" class="dn">♥ Donate</a>
+              </div>
+            </div>
+
+            <nav class="h3nv">
+              <div class="ni" onclick="om(this,'d3a')">Books &amp; Media <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+              <div class="ni" onclick="om(this,'d3b')">Services &amp; Spaces <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+              <div class="ni" onclick="om(this,'d3c')">Events <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+              <div class="ni" onclick="om(this,'d3d')">What’s New <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+              <div class="ni" onclick="om(this,'d3e')">About <span class="cv"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
+            </nav>
+
+            <!-- V3: Books & Media -->
+            <div class="mm" id="d3a">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Browse</h4>
+                  <a href="https://catalog.evpl.org">Explore Our Catalog<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/?browseCategory=evans_read">Books<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/?browseCategory=evans_watch">Movies &amp; TV<span class="ar">→</span></a>
+                  <a href="https://catalog.evpl.org/?browseCategory=evans_listen">Music &amp; Audio<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Digital</h4>
+                  <a href="https://libbyapp.com/library/evpl">Libby<span class="ar">→</span></a>
+                  <a href="https://www.hoopladigital.com/">Hoopla<span class="ar">→</span></a>
+                  <a href="https://evpl.kanopy.com/">Kanopy<span class="ar">→</span></a>
+                  <a href="https://evansvillevanderburghpublic.comicsplus.app/">Comics Plus<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>More</h4>
+                  <a href="/library-of-things/">Library of Things<span class="ar">→</span></a>
+                  <a href="/upcoming-releases/">Upcoming Releases<span class="ar">→</span></a>
+                  <a href="https://my.nicheacademy.com/evpl">EVPL Academy<span class="ar">→</span></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V3: Services & Spaces (includes Help & Learning so “What’s New” stays clean) -->
+            <div class="mm" id="d3b">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Services</h4>
+                  <a href="/services/library-card/">Library Cards<span class="ar">→</span></a>
+                  <a href="/services/passport-experience/">Passport Services<span class="ar">→</span></a>
+                  <a href="/services/notary-services/">Notary<span class="ar">→</span></a>
+                  <a href="/services/technology-services/print-copy-fax/">Print / Copy / Scan<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Spaces</h4>
+                  <a href="https://rooms.evpl.org/reserve">Reserve a Room<span class="ar">→</span></a>
+                  <a href="/services/evpl-maker-studio/">Maker Studio<span class="ar">→</span></a>
+                  <a href="/services/evpl-sensory-rooms/">Sensory Rooms<span class="ar">→</span></a>
+                  <a href="/services/technology-services/computer-internet-access/">Computers &amp; WiFi<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Help &amp; Learning</h4>
+                  <a href="/services/book-a-librarian/">Book-A-Librarian<span class="ar">→</span></a>
+                  <a href="/research-home/">Online Learning &amp; Research<span class="ar">→</span></a>
+                  <a href="/explore/research/">Databases A–Z<span class="ar">→</span></a>
+                  <a href="/community-resources/">Community Resources<span class="ar">→</span></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V3: Events -->
+            <div class="mm" id="d3c">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Browse</h4>
+                  <a href="https://events.evpl.org/events?v=grid&a=Children%20(0-11)">Kids Events<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events?v=grid&a=Young%20Adults%20(12-18)">Teen Events<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events?v=grid&a=Adults%20(18%2B)">Adult Events<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Featured</h4>
+                  <a href="https://libraryc.org/evpl">Virtual Author Talks<span class="ar">→</span></a>
+                  <a href="https://events.evpl.org/events">All Events<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4>&nbsp;</h4>
+                  <a href="https://events.evpl.org/events" class="cta">Full Events Calendar →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V3: What’s New (initiatives + blog/news + project updates ONLY) -->
+            <div class="mm" id="d3d">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Initiatives</h4>
+                  <a href="/initiatives/">All Initiatives<span class="ar">→</span></a>
+                  <a href="/initiatives/speak-2026/">SPEAK 2026<span class="ar">→</span></a>
+                  <a href="/initiatives/spark-a-love-of-reading/">Spark a Love of Reading<span class="ar">→</span></a>
+                  <a href="/initiatives/evpl-extras/">EVPL Extras!<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Blog &amp; News</h4>
+                  <a href="/discover/inspiration/">EVPL’s Blog<span class="ar">→</span></a>
+                  <a href="/discover/evpl-news/">EVPL News<span class="ar">→</span></a>
+                  <a href="/initiatives/2024-annual-report/">Annual Report<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Project Updates</h4>
+                  <a href="/project-updates/">All Project Updates<span class="ar">→</span></a>
+                  <a href="/project-updates/central-renovations/">Central Renovations<span class="ar">→</span></a>
+                  <a href="/project-updates/oaklyn-renovations/">Oaklyn Renovations<span class="ar">→</span></a>
+                  <a href="/project-updates/red-bank-renovations/">Red Bank Renovations<span class="ar">→</span></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- V3: About -->
+            <div class="mm" id="d3e">
+              <div class="mi">
+                <div class="mc">
+                  <h4><span class="dot"></span>Our Library</h4>
+                  <a href="/connect/leadership/?branch=all&department=leadership-team">Leadership<span class="ar">→</span></a>
+                  <a href="/connect/board/">Board of Trustees<span class="ar">→</span></a>
+                  <a href="/connect/foundation/">EVPL Foundation<span class="ar">→</span></a>
+                  <a href="/connect/about/careers/">Careers<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Policies</h4>
+                  <a href="/library-policies-and-procedures/">Library Policies<span class="ar">→</span></a>
+                  <a href="/ada-disclaimer/">Accessibility<span class="ar">→</span></a>
+                  <a href="/connect/contact-us/">Contact Us<span class="ar">→</span></a>
+                </div>
+                <div class="mc">
+                  <h4><span class="dot"></span>Community</h4>
+                  <a href="/outreach/">Outreach<span class="ar">→</span></a>
+                  <a href="/do-business-with-evpl/">Do Business with EVPL<span class="ar">→</span></a>
+                </div>
+              </div>
+            </div>
+
+          </header>
+
+          <div class="fh">
+            <div class="fhc">
+              <h1>Quick access, fewer labels</h1>
+              <p>Everything important lives in one obvious place.</p>
+              <button class="fhb">Explore EVPL →</button>
+            </div>
+          </div>
+
+          <div class="fcr">
+            <div class="fcd"><div class="em">📚</div><h3>Borrow</h3><p>Catalog + digital + Library of Things.</p></div>
+            <div class="fcd"><div class="em">🗓️</div><h3>Events</h3><p>Find what’s happening today.</p></div>
+            <div class="fcd"><div class="em">📰</div><h3>What’s New</h3><p>Initiatives, news, and project updates.</p></div>
+          </div>
+
+          <!-- V3 FOOTER (minimal, simplified structure) -->
+          <footer class="ft ftv3">
+            <div class="ft-top">
+              <div>
+                <h3>Explore EVPL</h3>
+                <p>Fast links for the most-used destinations.</p>
+              </div>
+              <div class="ft-form">
+                <input type="email" placeholder="Subscribe via email">
+                <button>Subscribe</button>
+              </div>
+            </div>
+
+            <div class="ft-grid cols-3">
+              <div class="ft-col ft-brand">
+                <img src="https://www.evpl.org/wp-content/uploads/2025/07/logo-formal-light-grey.png" alt="EVPL" class="ft-logo"
+                     onerror="this.style.display='none'">
+                <div class="ft-addr">
+                  200 SE Martin Luther King Jr. Blvd<br>
+                  Evansville, Indiana 47713<br>
+                  812.428.8200
+                </div>
+                <div class="ft-soc">
+                  <a href="#" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
+                  <a href="#" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+                  <a href="#" aria-label="X"><svg><use href="#i-tw"/></svg></a>
+                  <a href="#" aria-label="YouTube"><svg><use href="#i-yt"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg><use href="#i-li"/></svg></a>
+                </div>
+              </div>
+
+              <div class="ft-col">
+                <h4>Quick Links</h4>
+                <a href="https://catalog.evpl.org">Catalog</a>
+                <a href="https://events.evpl.org/events">Events Calendar</a>
+                <a href="/services/evpl-maker-studio/">Maker Studio</a>
+                <a href="/library-of-things/">Library of Things</a>
+                <a href="/initiatives/">Initiatives</a>
+                <a href="/project-updates/">Project Updates</a>
+              </div>
+
+              <div class="ft-col">
+                <h4>Account &amp; Help</h4>
+                <a href="https://catalog.evpl.org/MyAccount/Home">My Account</a>
+                <a href="/services/library-card/">Get a Card</a>
+                <a href="/services/book-a-librarian/">Book-A-Librarian</a>
+                <a href="/connect/contact-us/">Contact Us</a>
+              </div>
+            </div>
+
+            <div class="ft-bot">
+              <span class="copy">© 2026 Evansville Vanderburgh Public Library</span>
+              <nav>
+                <a href="/connect/locations/">Hours &amp; Locations</a>
+                <a href="/library-policies-and-procedures/">Policies</a>
+                <a href="/ada-disclaimer/">Accessibility</a>
+                <a href="/connect/foundation/">Donate</a>
+              </nav>
+            </div>
+          </footer>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================
+         COMPARE
+    ========================== -->
+    <div class="pn" id="p-cmp">
+      <div class="cw" style="margin-top:18px;">
+        <h2>Three Different Approaches</h2>
+        <table class="ct">
+          <thead>
+            <tr>
+              <th style="width:130px">Feature</th>
+              <th>V1: Task-Based</th>
+              <th>V2: Audience-Based</th>
+              <th>V3: Simplified</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="ft">Nav Items</td><td>Collections · Services · Programs &amp; Events · Initiatives · Research · Kids &amp; Teens · About</td><td>Browse &amp; Borrow · Services &amp; Spaces · What’s Happening · Kids · Teens · Support EVPL</td><td>Books &amp; Media · Services &amp; Spaces · Events · What’s New · About</td></tr>
+            <tr><td class="ft">Initiatives + Blog</td><td>Dedicated “Initiatives” label</td><td>Under “What’s Happening”</td><td>Under “What’s New”</td></tr>
+            <tr><td class="ft">Project Updates</td><td>Under Initiatives</td><td>Under What’s Happening</td><td>Under What’s New</td></tr>
+            <tr><td class="ft">Maker Studio</td><td>Services</td><td>Services &amp; Spaces</td><td>Services &amp; Spaces</td></tr>
+            <tr><td class="ft">Library of Things</td><td>Collections</td><td>Browse &amp; Borrow</td><td>Books &amp; Media</td></tr>
+            <tr><td class="ft">Footer concept</td><td>Task-based columns</td><td>Audience-based columns</td><td>Minimal quick links</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
-  <div class="cmp-section">
-    <h2>Visual Stack</h2>
-    <div class="stack-item"><div class="stack-label">V1 — Dark Utility Bar</div>
-      <div class="h1-wrap"><div class="h1-utility">
-        <a href="#">Hours &amp; Locations</a><a href="#">My Account</a><span class="u-sep"></span><a href="#">Get a Card</a><a href="#" class="u-donate">♥ Donate</a>
-      </div><div class="h1-main">
-        <a href="#" class="evpl-logo-link"><div class="logo-placeholder">EVPL Logo</div></a>
-        <nav class="h1-nav">
-          <div class="nav-item">Collections <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item">Services <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item">Programs &amp; Events <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item">Research <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item">Kids &amp; Teens <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item">About <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <button class="h1-search-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search</button>
-        </nav>
-      </div></div>
-    </div>
-    <div class="stack-item"><div class="stack-label">V2 — Warm Cream Bar</div>
-      <div class="h2-wrap"><div class="h2-utility"><div class="h2-ul"><a href="#">Hours &amp; Locations</a><a href="#">Contact Us</a></div><div class="h2-ur"><a href="#">My Account</a><a href="#" class="h2-pill h2-pill-red">♥ Donate</a><a href="#" class="h2-pill h2-pill-navy">Get a Card</a></div></div>
-      <div class="h2-main">
-        <a href="#" class="evpl-logo-link"><div class="logo-placeholder">EVPL Logo</div></a>
-        <nav class="h2-nav">
-          <div class="nav-item">Collections <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item">Services <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item">Programs &amp; Events <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item">Research <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item">Kids &amp; Teens <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <div class="nav-item">About <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-          <button class="h2-search-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search</button>
-        </nav>
-      </div></div>
-    </div>
-    <div class="stack-item" style="margin-bottom:40px;"><div class="stack-label">V3 — Search Always On</div>
-      <div class="h3-wrap"><div class="h3-top">
-        <a href="#" class="evpl-logo-link"><div class="logo-placeholder" style="display:flex;border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.05);">EVPL Logo</div></a>
-        <div class="h3-search-bar" style="pointer-events:none"><input type="text" placeholder="Search by keywords, title, subject, author…" readonly><div class="h3-scope"><label style="pointer-events:none"><input type="radio" checked disabled> Catalog</label><label style="pointer-events:none"><input type="radio" disabled> Website</label></div><button class="h3-go" style="pointer-events:none">Go</button></div>
-        <div class="h3-actions"><a href="#">Locations</a><a href="#">My Account</a><a href="#">Get a Card</a><a href="#" class="h3-donate">♥ Donate</a></div>
-      </div><nav class="h3-nav">
-        <div class="nav-item">Collections <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-        <div class="nav-item">Services <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-        <div class="nav-item">Programs &amp; Events <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-        <div class="nav-item">Research <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-        <div class="nav-item">Kids &amp; Teens <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-        <div class="nav-item">About <span class="nav-arrow"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></span></div>
-      </nav></div>
-    </div>
-  </div>
-</div>
 
-</div><!-- /page-wrap -->
+  <script>
+    function show(id,b){
+      document.querySelectorAll('.pn').forEach(p=>p.classList.remove('on'));
+      document.querySelectorAll('.tb').forEach(t=>t.classList.remove('on'));
+      document.getElementById('p-'+id).classList.add('on');
+      b.classList.add('on');
+      ca();
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
 
-<script>
-function showP(id,btn){
-  document.querySelectorAll('.proto').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.s-tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('p-'+id).classList.add('active');
-  btn.classList.add('active');
-  closeAll();
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function closeAll(){
-  document.querySelectorAll('.mega').forEach(m=>m.classList.remove('open'));
-  document.querySelectorAll('.search-panel').forEach(s=>s.classList.remove('open'));
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('open'));
-}
-function openMega(el,id){
-  const menu=document.getElementById(id);
-  const wasOpen=menu.classList.contains('open');
-  closeAll();
-  if(!wasOpen){menu.classList.add('open');el.classList.add('open');}
-}
-function openSearch(id){
-  const panel=document.getElementById(id);
-  const wasOpen=panel.classList.contains('open');
-  closeAll();
-  if(!wasOpen){panel.classList.add('open');panel.querySelector('input[type="text"]').focus();}
-}
-document.addEventListener('click',function(e){
-  if(!e.target.closest('.nav-item')&&!e.target.closest('.mega')&&
-     !e.target.closest('.h1-search-btn')&&!e.target.closest('.h2-search-btn')&&
-     !e.target.closest('.search-panel')){closeAll();}
-});
-</script>
+    function ca(){
+      document.querySelectorAll('.mm').forEach(m=>m.classList.remove('open'));
+      document.querySelectorAll('.sp').forEach(s=>s.classList.remove('open'));
+      document.querySelectorAll('.ni').forEach(n=>n.classList.remove('open'));
+    }
+
+    function om(el,id){
+      const m=document.getElementById(id);
+      const w=m.classList.contains('open');
+      ca();
+      if(!w){ m.classList.add('open'); el.classList.add('open'); }
+    }
+
+    function os(id){
+      const p=document.getElementById(id);
+      const w=p.classList.contains('open');
+      ca();
+      if(!w){ p.classList.add('open'); p.querySelector('input[type=text]').focus(); }
+    }
+
+    document.addEventListener('click',e=>{
+      if(!e.target.closest('.ni') && !e.target.closest('.mm') && !e.target.closest('.h1sb') && !e.target.closest('.h2sb') && !e.target.closest('.sp')) ca();
+    });
+  </script>
 </body>
 </html>
